@@ -8,16 +8,18 @@
 
   <style>
     :root{
-      /* Core */
-      --bg0:#070A12;
-      --bg1:#0A1024;
-      --card: rgba(255,255,255,0.06);
-      --card2: rgba(255,255,255,0.08);
-      --stroke: rgba(255,255,255,0.12);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.72);
-      --muted2: rgba(255,255,255,0.58);
-      --shadow: 0 18px 60px rgba(0,0,0,0.55);
+      /* One Medical–inspired: bright, calm, airy */
+      --bg0:#F7FAFC;
+      --bg1:#FFFFFF;
+      --surface:#FFFFFF;
+      --surface2:#F3F6FA;
+      --stroke: rgba(15,23,42,0.10);
+      --stroke2: rgba(15,23,42,0.08);
+      --text: rgba(15,23,42,0.92);
+      --muted: rgba(15,23,42,0.72);
+      --muted2: rgba(15,23,42,0.58);
+      --shadow: 0 18px 60px rgba(15,23,42,0.10);
+      --shadow2: 0 12px 34px rgba(15,23,42,0.10);
       --radius: 18px;
       --radius2: 26px;
       --max: 1120px;
@@ -29,28 +31,27 @@
       */
       --brand306:#00B5E2;
       --brand320:#008C95;
-      --nameGrey:#9CA3AF;
+      --nameGrey:#6B7280;
 
       /* Accent mapping */
       --accent1: var(--brand306);
       --accent2: var(--brand320);
-      --accent3: var(--brand306);
-
-      --warn:#F59E0B;
+      --warn:#B45309;
 
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
 
     *{box-sizing:border-box}
     html, body{height:100%}
+    html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family: var(--font);
       color: var(--text);
       background:
-        radial-gradient(900px 600px at 10% 10%, rgba(0,181,226,0.22), transparent 55%),
-        radial-gradient(900px 600px at 90% 20%, rgba(0,140,149,0.20), transparent 60%),
-        radial-gradient(900px 600px at 65% 90%, rgba(0,181,226,0.14), transparent 60%),
+        radial-gradient(900px 520px at 10% 0%, rgba(0,181,226,0.10), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(0,140,149,0.10), transparent 65%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
@@ -63,9 +64,9 @@
       pointer-events:none;
       position:fixed;
       inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='130' height='130' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
-      opacity:0.22;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='130' height='130' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+      opacity:0.08;
       transform: translateZ(0);
     }
 
@@ -79,8 +80,8 @@
       z-index:50;
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      background: rgba(8,12,24,0.62);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.74);
+      border-bottom: 1px solid var(--stroke2);
     }
     .topbar-inner{
       display:flex;
@@ -102,15 +103,15 @@
       background: linear-gradient(135deg, rgba(0,181,226,0.95), rgba(0,140,149,0.85));
       box-shadow: 0 12px 28px rgba(0,181,226,0.20);
       position:relative;
-      border: 1px solid rgba(255,255,255,0.18);
+      border: 1px solid rgba(15,23,42,0.10);
     }
     .brand-badge:before{
       content:"";
       position:absolute;
       inset:8px;
       border-radius:10px;
-      border: 1px solid rgba(255,255,255,0.35);
-      opacity:0.7;
+      border: 1px solid rgba(255,255,255,0.55);
+      opacity:0.65;
     }
     .brand-title{font-weight:800; letter-spacing:0.2px; line-height:1.1; color: var(--nameGrey)}
     .brand-sub{font-size:12px; color:var(--muted2); margin-top:2px}
@@ -131,8 +132,8 @@
     }
     .nav a:hover{
       color: var(--text);
-      border-color: rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
+      border-color: var(--stroke);
+      background: rgba(15,23,42,0.03);
     }
 
     .social{
@@ -149,14 +150,14 @@
       font-size:12px;
       padding:9px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--stroke);
       color: var(--muted);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       user-select:none;
       white-space:nowrap;
     }
-    .pill:hover{transform: translateY(-1px); background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.14); color: var(--text)}
+    .pill:hover{transform: translateY(-1px); background: rgba(255,255,255,0.92); border-color: rgba(0,140,149,0.22); color: var(--text)}
     .pill .dot{
       width:8px; height:8px; border-radius:999px;
       background: linear-gradient(135deg, var(--brand306), var(--brand320));
@@ -175,35 +176,33 @@
     .hero-card{
       border-radius: var(--radius2);
       background:
-        radial-gradient(900px 400px at 10% 10%, rgba(0,181,226,0.20), transparent 50%),
-        radial-gradient(900px 400px at 95% 10%, rgba(0,140,149,0.18), transparent 55%),
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
-      border: 1px solid rgba(255,255,255,0.12);
+        radial-gradient(900px 380px at 10% 10%, rgba(0,181,226,0.14), transparent 60%),
+        radial-gradient(900px 380px at 95% 10%, rgba(0,140,149,0.12), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
+      border: 1px solid var(--stroke);
       box-shadow: var(--shadow);
       padding: 30px;
       position:relative;
       overflow:hidden;
     }
+    .hero-card::before{content:"";position:absolute;inset:0;background: linear-gradient(180deg, rgba(255,255,255,0.00), rgba(255,255,255,0.00));pointer-events:none;}
+    .hero-card > *{position:relative; z-index:1}
 
     .hero-kicker{
       display:inline-flex;
       align-items:center;
       gap:10px;
       font-size:12px;
-      color: rgba(255,255,255,0.80);
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(15,23,42,0.80);
+      background: rgba(255,255,255,0.74);
+      border: 1px solid var(--stroke);
       padding:9px 12px;
       border-radius: 999px;
     }
-    .hero-kicker b{color: rgba(255,255,255,0.92)}
+    .hero-kicker b{color: rgba(15,23,42,0.92)}
 
-    h1{
-      margin:16px 0 10px;
-      font-size: 44px;
-      letter-spacing: -0.9px;
-      line-height: 1.06;
-    }
+    h1{margin:16px 0 10px;font-size: 44px;letter-spacing: -0.9px;line-height: 1.06;color: rgba(15,23,42,0.94);}
+
     .lead{
       font-size:16px;
       color: var(--muted);
@@ -213,6 +212,7 @@
     }
 
     .cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top: 18px}
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -220,26 +220,26 @@
       gap:10px;
       padding: 12px 16px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.78);
+      color: rgba(15,23,42,0.92);
       cursor:pointer;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       user-select:none;
       white-space:nowrap;
-      font-weight: 600;
+      font-weight: 700;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18)}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,0.92); border-color: rgba(0,140,149,0.22)}
 
     .btn-primary{
-      border-color: rgba(0,181,226,0.38);
+      border-color: rgba(0,140,149,0.30);
       background: linear-gradient(135deg, rgba(0,181,226,0.95), rgba(0,140,149,0.88));
-      color: rgba(7,10,18,0.96);
-      box-shadow: 0 18px 34px rgba(0,181,226,0.16);
+      color: rgba(255,255,255,0.98);
+      box-shadow: 0 18px 34px rgba(0,140,149,0.16);
     }
     .btn-primary:hover{background: linear-gradient(135deg, rgba(0,181,226,0.98), rgba(0,140,149,0.92))}
 
-    .btn-ghost{background: rgba(255,255,255,0.04)}
+    .btn-ghost{background: rgba(255,255,255,0.88)}
 
     .meta-row{display:flex; gap:18px; flex-wrap:wrap; margin-top: 20px}
     .meta{
@@ -248,25 +248,25 @@
       gap:10px;
       padding: 12px 14px;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.82);
       min-width: 210px;
     }
     .meta .icon{
       width: 34px; height: 34px; border-radius: 12px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(15,23,42,0.03);
+      border: 1px solid var(--stroke2);
       display:flex; align-items:center; justify-content:center;
       flex: 0 0 auto;
     }
     .meta .icon svg{opacity:0.9}
-    .meta .t{font-weight:700; font-size:13px}
+    .meta .t{font-weight:800; font-size:13px; color: rgba(15,23,42,0.92)}
     .meta .d{font-size:12px; color: var(--muted2); margin-top:3px; line-height:1.4}
 
     .hero-side{
       border-radius: var(--radius2);
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.84));
+      border: 1px solid var(--stroke);
       box-shadow: var(--shadow);
       padding: 22px;
       display:flex;
@@ -282,8 +282,8 @@
       gap:10px;
       padding: 14px;
       border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(15,23,42,0.02);
+      border: 1px solid var(--stroke2);
     }
     .availability h3{margin:0; font-size:14px}
     .availability p{margin:0; font-size:12px; color: var(--muted); line-height:1.5}
@@ -293,16 +293,16 @@
       display:flex; gap:10px; align-items:flex-start;
       padding: 12px;
       border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(15,23,42,0.02);
+      border: 1px solid var(--stroke2);
     }
     .mini .chip{
       width: 34px; height: 34px; border-radius: 12px;
       background: linear-gradient(135deg, rgba(0,181,226,0.72), rgba(0,140,149,0.42));
-      border: 1px solid rgba(255,255,255,0.14);
+      border: 1px solid rgba(15,23,42,0.10);
       flex: 0 0 auto;
     }
-    .mini .tt{font-weight:700; font-size:13px}
+    .mini .tt{font-weight:800; font-size:13px; color: rgba(15,23,42,0.92)}
     .mini .dd{font-size:12px; color: var(--muted2); margin-top:3px; line-height:1.45}
 
     /* general sections */
@@ -311,22 +311,22 @@
     .section-head h2{margin:0; font-size: 26px; letter-spacing:-0.4px}
     .section-head p{margin:0; color: var(--muted); max-width: 68ch; line-height:1.6; font-size: 14px}
 
-    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
-    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
+    .grid-3{display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px}
+    .grid-2{display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:14px}
 
     .card{
       border-radius: var(--radius);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 16px 46px rgba(0,0,0,0.30);
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow2);
       padding: 18px;
       position:relative;
       overflow:hidden;
     }
-    .card:hover{border-color: rgba(255,255,255,0.14)}
+    .card:hover{border-color: rgba(0,140,149,0.22)}
 
-    .card-title{font-weight:800; margin: 0 0 8px; font-size: 14px}
-    .card-desc{margin:0; color: var(--muted); font-size: 13px; line-height: 1.6}
+    .card-title{font-weight:900; margin: 0 0 8px; font-size: 14px; color: rgba(15,23,42,0.92)}
+    .card-desc{margin:0; color: var(--muted); font-size: 13px; line-height: 1.62}
 
     /* services */
     .service-tag{
@@ -336,9 +336,9 @@
       font-size:12px;
       padding:8px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: var(--muted);
+      background: rgba(0,140,149,0.08);
+      border: 1px solid rgba(0,140,149,0.14);
+      color: rgba(15,23,42,0.70);
       margin-top: 10px;
     }
     .service-tag i{
@@ -362,9 +362,9 @@
       border-radius: 22px;
       aspect-ratio: 4/5;
       object-fit: cover;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid var(--stroke);
       box-shadow: var(--shadow);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.70);
     }
     .about-badges{display:flex; gap:10px; flex-wrap:wrap}
 
@@ -378,13 +378,13 @@
       align-items:flex-start;
       padding: 12px 12px;
       border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(15,23,42,0.02);
+      border: 1px solid var(--stroke2);
     }
     .li .check{
       width: 22px; height: 22px; border-radius: 8px;
-      background: rgba(0,181,226,0.14);
-      border: 1px solid rgba(0,181,226,0.28);
+      background: rgba(0,181,226,0.10);
+      border: 1px solid rgba(0,181,226,0.22);
       display:flex; align-items:center; justify-content:center;
       flex: 0 0 auto;
       margin-top: 2px;
@@ -394,8 +394,8 @@
     /* testimonials slider */
     .slider{
       border-radius: var(--radius2);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
+      border: 1px solid var(--stroke);
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
@@ -415,7 +415,7 @@
     .quote{
       font-size: 16px;
       line-height: 1.7;
-      color: rgba(255,255,255,0.88);
+      color: rgba(15,23,42,0.86);
       margin:0;
     }
     .who{
@@ -423,10 +423,10 @@
       align-items:center;
       justify-content:space-between;
       gap:10px;
-      border-top: 1px solid rgba(255,255,255,0.10);
+      border-top: 1px solid var(--stroke2);
       padding-top: 12px;
     }
-    .who b{font-size: 13px}
+    .who b{font-size: 13px; color: rgba(15,23,42,0.92)}
     .who span{font-size: 12px; color: var(--muted2)}
     .slider-controls{
       position:absolute;
@@ -440,48 +440,50 @@
       pointer-events:auto;
       border-radius: 14px;
       padding: 10px 12px;
-      background: rgba(0,0,0,0.28);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--stroke);
       cursor:pointer;
       display:flex; align-items:center; gap:8px;
-      color: rgba(255,255,255,0.86);
-      font-weight: 800;
+      color: rgba(15,23,42,0.86);
+      font-weight: 900;
       font-size: 12px;
     }
     .dots{display:flex; gap:8px; align-items:center; justify-content:center; margin-top: 12px}
     .dot{
       width: 8px; height: 8px; border-radius: 999px;
-      background: rgba(255,255,255,0.22);
-      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(15,23,42,0.18);
+      border: 1px solid rgba(15,23,42,0.10);
       cursor:pointer;
     }
-    .dot.active{background: linear-gradient(135deg, rgba(0,181,226,0.95), rgba(0,140,149,0.88)); border-color: rgba(0,181,226,0.40)}
+    .dot.active{background: linear-gradient(135deg, rgba(0,181,226,0.95), rgba(0,140,149,0.88)); border-color: rgba(0,140,149,0.28)}
 
     /* FAQ */
     details{
       border-radius: var(--radius);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--stroke);
       padding: 14px 14px;
+      box-shadow: var(--shadow2);
     }
     details + details{margin-top: 10px}
     summary{
       cursor:pointer;
       list-style:none;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 14px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
+      color: rgba(15,23,42,0.92);
     }
     summary::-webkit-details-marker{display:none}
     .faq-a{color: var(--muted); margin: 10px 0 0; font-size: 13px; line-height:1.7}
     .chev{
       width: 34px; height: 34px; border-radius: 12px;
       display:flex; align-items:center; justify-content:center;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(15,23,42,0.03);
+      border: 1px solid var(--stroke2);
       transition: transform .18s ease;
       flex: 0 0 auto;
     }
@@ -491,10 +493,10 @@
     .callout{
       border-radius: var(--radius2);
       background:
-        radial-gradient(700px 300px at 10% 30%, rgba(0,140,149,0.18), transparent 55%),
-        radial-gradient(700px 300px at 90% 30%, rgba(0,181,226,0.18), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.12);
+        radial-gradient(700px 300px at 10% 30%, rgba(0,140,149,0.12), transparent 55%),
+        radial-gradient(700px 300px at 90% 30%, rgba(0,181,226,0.12), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
+      border: 1px solid var(--stroke);
       box-shadow: var(--shadow);
       padding: 22px;
       display:flex;
@@ -507,51 +509,53 @@
     .callout p{margin:0; color: var(--muted); font-size: 13px; line-height:1.7; max-width: 76ch}
 
     /* collaborations */
-    .logos{display:grid; grid-template-columns: repeat(6, 1fr); gap: 10px;}
+    .logos{display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;}
     .logo{
       border-radius: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--stroke);
       padding: 14px;
       display:flex;
       align-items:center;
       justify-content:center;
       min-height: 64px;
-      color: rgba(255,255,255,0.70);
+      color: rgba(15,23,42,0.72);
       font-size: 12px;
       text-align:center;
       line-height:1.2;
+      box-shadow: var(--shadow2);
     }
-    .logo img{max-width: 100%; max-height: 34px; filter: brightness(1.1); opacity:0.92}
+    .logo img{max-width: 100%; max-height: 34px; opacity:0.92}
 
     /* contact */
     .contact{display:grid; grid-template-columns: 1fr 1fr; gap: 14px;}
     .contact .card{padding: 20px}
     .label{font-size: 12px; color: var(--muted2); margin-bottom:6px}
-    .big{font-size: 18px; font-weight: 900; letter-spacing:-0.2px}
+    .big{font-size: 18px; font-weight: 900; letter-spacing:-0.2px; color: rgba(15,23,42,0.92)}
     .note{font-size: 12px; color: var(--muted); line-height:1.6; margin-top: 10px}
 
     /* chatbot placeholder */
     .chatbot{
       border-radius: var(--radius2);
       padding: 18px;
-      border: 1px dashed rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.03);
+      border: 1px dashed rgba(0,140,149,0.35);
+      background: rgba(255,255,255,0.88);
+      box-shadow: var(--shadow2);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 12px;
       flex-wrap:wrap;
     }
-    .chatbot b{font-size: 14px}
+    .chatbot b{font-size: 14px; color: rgba(15,23,42,0.92)}
     .chatbot span{font-size: 12px; color: var(--muted); line-height:1.6; max-width: 70ch}
 
-    /* footer */
     footer{
       padding: 34px 0 46px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid var(--stroke2);
       color: var(--muted2);
       font-size: 12px;
+      background: rgba(255,255,255,0.50);
     }
 
     /* utilities */
@@ -563,18 +567,19 @@
       h1{font-size: 40px}
       .social{min-width: 0}
       .brand{min-width: 0}
-      .logos{grid-template-columns: repeat(3, 1fr)}
       .about{grid-template-columns: 1fr}
       .contact{grid-template-columns: 1fr}
-      .grid-3{grid-template-columns: 1fr}
-      .grid-2{grid-template-columns: 1fr}
     }
     @media (max-width: 560px){
       .nav{display:none}
       h1{font-size: 34px}
       .hero{padding-top: 48px}
-      .logos{grid-template-columns: repeat(2, 1fr)}
+      .topbar-inner{gap:10px}
+      .social{flex-wrap:wrap; justify-content:flex-end}
+      .btn{width:100%}
+      .cta-row{width:100%}
     }
+  </style>
   </style>
 </head>
 
@@ -711,410 +716,320 @@
         </div>
       </div>
     </section>
-
-    <!-- SERVICES -->
+    <!-- SERVICIOS -->
     <section class="anchor" id="servicios">
       <div class="container">
         <div class="section-head">
           <div>
             <h2>Servicios</h2>
-            <p>Consulta clínica, prevención, certificaciones y medicina de viaje/buceo. Si no sabes cuál servicio te aplica, agenda y lo definimos en la primera parte de la consulta.</p>
+            <h3 style="margin:8px 0 0; font-size: 14px; color: var(--muted2); font-weight: 700; letter-spacing:.2px">
+              Clínica · Prevención · Viajes · Buceo · Certificaciones
+            </h3>
           </div>
+          <p>
+            Agenda una consulta virtual para valoración, plan de estudio, tratamiento y seguimiento. Si necesitas orientación rápida,
+            también puedes escribir por WhatsApp.
+          </p>
         </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <p class="card-title">Consulta virtual de infectología y medicina interna</p>
-            <p class="card-desc">Evaluación integral, interpretación de estudios y plan de manejo basado en evidencia.</p>
-            <span class="service-tag"><i></i>Clínico</span>
+        <div class="grid-3" role="list" aria-label="Lista de servicios">
+          <div class="card" role="listitem">
+            <div class="card-title">Consulta virtual de infectología y medicina interna</div>
+            <p class="card-desc">Evaluación integral para infecciones complejas, fiebre persistente, infecciones recurrentes o dudas diagnósticas.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Clínica</div>
           </div>
-          <div class="card">
-            <p class="card-title">Healthcare for expats</p>
-            <p class="card-desc">Atención en inglés/español, coordinación de estudios y continuidad del cuidado para residentes, estudiantes y viajeros.</p>
-            <span class="service-tag"><i></i>Clínico</span>
-          </div>
-          <div class="card">
-            <p class="card-title">Segundas opiniones de casos complejos</p>
-            <p class="card-desc">Revisión estructurada, priorización de estudios y plan de decisiones claro.</p>
-            <span class="service-tag"><i></i>Clínico</span>
-          </div>
-        </div>
 
-        <div style="height:14px"></div>
+          <div class="card" role="listitem">
+            <div class="card-title">Healthcare for expats</div>
+            <p class="card-desc">Acompañamiento clínico para personas viviendo en México: prevención, continuidad de tratamiento y coordinación de cuidados.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Internacional</div>
+          </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <p class="card-title">PrEP (profilaxis pre-exposición)</p>
-            <p class="card-desc">Elegibilidad, esquema, monitoreo, prevención combinada y seguimiento.</p>
-            <span class="service-tag"><i></i>VIH/ETS</span>
+          <div class="card" role="listitem">
+            <div class="card-title">Consultas de medicina del viajero</div>
+            <p class="card-desc">Vacunas, riesgos por destino, botiquín, diarrea del viajero, mordeduras, altura, y planes personalizados.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Viajes</div>
           </div>
-          <div class="card">
-            <p class="card-title">PEP (profilaxis post-exposición)</p>
-            <p class="card-desc">Evaluación de riesgo y tratamiento oportuno. Idealmente dentro de 72 horas.</p>
-            <span class="service-tag"><i></i>VIH/ETS</span>
-          </div>
-          <div class="card">
-            <p class="card-title">Vacunas</p>
-            <p class="card-desc">Revisión de cartilla, indicaciones, refuerzos y esquema por riesgo o por viaje.</p>
-            <span class="service-tag"><i></i>Prevención</span>
-          </div>
-        </div>
 
-        <div style="height:14px"></div>
+          <div class="card" role="listitem">
+            <div class="card-title">Certificado internacional de vacunación de fiebre amarilla</div>
+            <p class="card-desc">Emisión y orientación para el Certificado Internacional de Vacunación (ICVP) cuando esté indicado.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Vacunas</div>
+          </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <p class="card-title">Consultas de medicina del viajero</p>
-            <p class="card-desc">Riesgos por destino/actividad, profilaxis, botiquín, prevención y plan post-viaje si es necesario.</p>
-            <span class="service-tag"><i></i>Viajes</span>
+          <div class="card" role="listitem">
+            <div class="card-title">Certificados médicos internacionales</div>
+            <p class="card-desc">Documentación clínica para viajes, trabajo o trámites; con criterios médicos y trazabilidad.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Certificación</div>
           </div>
-          <div class="card">
-            <p class="card-title">Asesoría para conseguir medicamentos para malaria y viajes</p>
-            <p class="card-desc">Opciones por destino, disponibilidad, receta/indicaciones y uso seguro.</p>
-            <span class="service-tag"><i></i>Viajes</span>
-          </div>
-          <div class="card">
-            <p class="card-title">Fitness-to-travel</p>
-            <p class="card-desc">Aptitud médica para viajar: evaluación de riesgos, comorbilidades y medidas preventivas.</p>
-            <span class="service-tag"><i></i>Viajes</span>
-          </div>
-        </div>
 
-        <div style="height:14px"></div>
+          <div class="card" role="listitem">
+            <div class="card-title">Valoraciones preoperatorias</div>
+            <p class="card-desc">Optimización clínica y evaluación de riesgo: infecciones activas, profilaxis y comorbilidades.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Preop</div>
+          </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <p class="card-title">Certificado internacional de vacunación (fiebre amarilla)</p>
-            <p class="card-desc">Evaluación, indicación/contraindicación y emisión del certificado internacional cuando aplica.</p>
-            <span class="service-tag"><i></i>Certificados</span>
+          <div class="card" role="listitem">
+            <div class="card-title">Llenado de informes médicos de aseguradoras</div>
+            <p class="card-desc">Apoyo en formatos y reportes médicos con lenguaje clínico preciso, sin ambigüedades.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Administrativos</div>
           </div>
-          <div class="card">
-            <p class="card-title">Certificados médicos internacionales</p>
-            <p class="card-desc">Certificados para viajes, trabajo, estudios y trámites (según requerimientos).</p>
-            <span class="service-tag"><i></i>Certificados</span>
-          </div>
-          <div class="card">
-            <p class="card-title">Certificados médicos internacionales (aseguradoras)</p>
-            <p class="card-desc">Llenado de informes médicos de aseguradoras: integración de expediente y soporte documental.</p>
-            <span class="service-tag"><i></i>Administrativo</span>
-          </div>
-        </div>
 
-        <div style="height:14px"></div>
+          <div class="card" role="listitem">
+            <div class="card-title">Asesoría para conseguir medicamentos para malaria y viajes</div>
+            <p class="card-desc">Orientación para profilaxis y tratamiento de rescate según destino, disponibilidad y seguridad.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Viajes</div>
+          </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <p class="card-title">Valoraciones preoperatorias</p>
-            <p class="card-desc">Optimización clínica y evaluación de riesgos, incluyendo criterios infecciosos cuando corresponda.</p>
-            <span class="service-tag"><i></i>Clínico</span>
+          <div class="card" role="listitem">
+            <div class="card-title">PrEP (profilaxis pre-exposición)</div>
+            <p class="card-desc">Elegibilidad, esquema, laboratorios, seguimiento y reducción de riesgos.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> VIH/Prevención</div>
           </div>
-          <div class="card">
-            <p class="card-title">Fitness-to-dive</p>
-            <p class="card-desc">Evaluación de aptitud para buceo, riesgos específicos y recomendaciones personalizadas.</p>
-            <span class="service-tag"><i></i>Buceo</span>
-          </div>
-          <div class="card">
-            <p class="card-title">Medicina hiperbárica y del buceo</p>
-            <p class="card-desc">Orientación clínica y evaluación de riesgos relacionados con buceo/entornos hiperbáricos.</p>
-            <span class="service-tag"><i></i>Buceo</span>
-          </div>
-        </div>
 
-        <div style="height:14px"></div>
+          <div class="card" role="listitem">
+            <div class="card-title">PEP (profilaxis post exposición)</div>
+            <p class="card-desc">Evaluación y manejo urgente (idealmente en primeras 72 horas), con plan de seguimiento.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> VIH/Urgente</div>
+          </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <p class="card-title">Medicina expedicionaria</p>
-            <p class="card-desc">Riesgo médico en expedición, botiquines, protocolos, prevención y planes de contingencia.</p>
-            <span class="service-tag"><i></i>Expedición</span>
+          <div class="card" role="listitem">
+            <div class="card-title">Segundas opiniones de casos complejos</div>
+            <p class="card-desc">Revisión de expediente, interpretación de estudios, y recomendaciones claras para tu equipo médico.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Complejidad</div>
           </div>
-          <div class="card">
-            <p class="card-title">Llenado de informes / reportes médicos</p>
-            <p class="card-desc">Constancias y documentación basada en expediente (según el caso y requerimientos).</p>
-            <span class="service-tag"><i></i>Administrativo</span>
-          </div>
-          <div class="card">
-            <p class="card-title">Certificados médicos para trámites</p>
-            <p class="card-desc">Documentación internacional (según criterios clínicos y requisitos del solicitante).</p>
-            <span class="service-tag"><i></i>Administrativo</span>
-          </div>
-        </div>
 
-        <div class="cta-row" style="margin-top:16px">
-          <a class="btn btn-primary" href="#agendar">Agendar consulta</a>
-          <a class="btn" href="#contacto">WhatsApp</a>
+          <div class="card" role="listitem">
+            <div class="card-title">Vacunas</div>
+            <p class="card-desc">Esquemas personalizados: adultos, viajeros, inmunocomprometidos, refuerzos y prevención avanzada.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Prevención</div>
+          </div>
+
+          <div class="card" role="listitem">
+            <div class="card-title">Fitness-to-travel</div>
+            <p class="card-desc">Aptitud y recomendaciones de seguridad para viajes exigentes, altura o itinerarios complejos.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Evaluación</div>
+          </div>
+
+          <div class="card" role="listitem">
+            <div class="card-title">Fitness-to-dive</div>
+            <p class="card-desc">Valoración de aptitud para buceo recreativo o técnico; riesgos, comorbilidades y prevención.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Buceo</div>
+          </div>
+
+          <div class="card" role="listitem">
+            <div class="card-title">Medicina hiperbárica y del buceo</div>
+            <p class="card-desc">Orientación clínica para escenarios relacionados con buceo y exposición a presión, con enfoque preventivo.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Hiperbárica</div>
+          </div>
+
+          <div class="card" role="listitem">
+            <div class="card-title">Medicina expedicionaria</div>
+            <p class="card-desc">Riesgos en entornos remotos: prevención, botiquín, evacuación, seguridad sanitaria y contingencias.</p>
+            <div class="service-tag"><i aria-hidden="true"></i> Expediciones</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- CONOCE A TU DOCTOR -->
     <section class="anchor" id="conoce">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Conoce a tu doctor</h2>
-            <p>Experiencia clínica y programática en enfermedades infecciosas, salud pública y medicina del viajero.</p>
-          </div>
+          <h2>Conoce a tu doctor</h2>
+          <p>
+            Atención con enfoque técnico y humano, especialmente en VIH/ETS, medicina del viajero, vacunas e infecciones tropicales.
+          </p>
         </div>
 
         <div class="about">
           <div class="portrait">
             <img class="photo" src="assets/rodrigo.jpg" alt="Foto del Dr. Rodrigo" />
             <div class="about-badges">
-              <span class="pill"><span class="dot" aria-hidden="true"></span>Infectología</span>
-              <span class="pill">VIH / ETS</span>
-              <span class="pill">Travel medicine</span>
-              <span class="pill">Vacunas</span>
+              <span class="pill"><span class="dot" aria-hidden="true"></span> Infectología</span>
+              <span class="pill">Medicina interna</span>
+              <span class="pill">VIH y ETS</span>
+              <span class="pill">Travel medicine & vacunas</span>
             </div>
           </div>
 
           <div class="card about-text">
-            <h3>Dr. Rodrigo</h3>
+            <h3>Dr. Rodrigo Ville Benavides</h3>
             <p>
-              El Dr. Rodrigo es médico especialista en infectología con enfoque en VIH y ETS, medicina del viajero y vacunación,
-              medicina interna e infecciones tropicales. Su estilo de consulta es estructurado, empático y orientado a decisiones
-              prácticas basadas en evidencia.
+              Médico especialista en infectología y medicina interna, con enfoque en VIH y ETS, prevención (PrEP/PEP),
+              medicina del viajero y vacunación, e infecciones tropicales. Su práctica integra evaluación clínica rigurosa,
+              comunicación clara y decisiones pragmáticas basadas en evidencia.
             </p>
             <p>
-              En consulta, prioriza entender tu contexto (síntomas, exposiciones, riesgos, objetivos) y construir un plan accionable:
-              qué significa cada estudio, qué hacer hoy, qué vigilar, y cuándo ajustar.
+              En consulta virtual, prioriza un plan de manejo accionable: qué hacer hoy, qué estudios valen la pena y qué vigilar,
+              con coordinación cuando se requiere atención presencial.
             </p>
 
-            <div class="list" aria-label="Puntos clave">
+            <div class="list" aria-label="Áreas de enfoque">
               <div class="li">
                 <div class="check" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <div class="txt"><b>Especialidad:</b> VIH/ETS, PrEP/PEP, infecciones complejas y tropicales.</div>
+                <div class="txt"><b>VIH/ETS:</b> diagnóstico, tratamiento, seguimiento, PrEP/PEP y prevención combinada.</div>
               </div>
               <div class="li">
                 <div class="check" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <div class="txt"><b>Enfoque:</b> plan clínico claro + seguimiento, con mínimo ruido y máxima utilidad.</div>
+                <div class="txt"><b>Viajes y vacunas:</b> esquemas personalizados, profilaxis de malaria y botiquín por itinerario.</div>
               </div>
               <div class="li">
                 <div class="check" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <div class="txt"><b>Medicina del viajero:</b> vacunas, profilaxis, botiquín y riesgos por destino/actividad.</div>
+                <div class="txt"><b>Casos complejos:</b> fiebre persistente, infecciones recurrentes y segundas opiniones.</div>
               </div>
             </div>
 
             <div class="cta-row" style="margin-top:14px">
-              <a class="btn btn-primary" target="_blank" rel="noopener" href="TU-LINK-DE-GOOGLE-APPOINTMENTS">Agendar ahora</a>
-              <a class="btn" target="_blank" rel="noopener" href="https://wa.me/52XXXXXXXXXX?text=Hola%20Dr.%20Rodrigo%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20virtual.">WhatsApp</a>
+              <a class="btn btn-primary" target="_blank" rel="noopener" href="TU-LINK-DE-GOOGLE-APPOINTMENTS">Agendar consulta</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://wa.me/52XXXXXXXXXX?text=Hola%20Dr.%20Rodrigo%2C%20quiero%20una%20consulta%20virtual.">WhatsApp</a>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- OPINIONES -->
     <section class="anchor" id="opiniones">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Opiniones de pacientes</h2>
-            <p>Ejemplos de reseñas. Sustituye el texto por tus opiniones reales (sin datos personales identificables).</p>
-          </div>
+          <h2>Opiniones de pacientes</h2>
+          <p>Comentarios reales suelen ser anónimos y resumidos. Reemplaza estos ejemplos por tus testimonios verificables.</p>
         </div>
 
         <div class="slider" aria-label="Carrusel de opiniones">
           <div class="slides" id="slides">
             <div class="slide">
-              <p class="quote">“Me explicó todo con calma y claridad. Salí con un plan concreto y entendiendo por qué cada estudio era necesario.”</p>
-              <div class="who"><div><b>Paciente</b><div><span>Consulta virtual</span></div></div><span>★★★★★</span></div>
+              <p class="quote">“Me explicó todo con claridad, me dio un plan concreto y me sentí acompañado. Excelente seguimiento.”</p>
+              <div class="who"><b>Paciente (anónimo)</b><span>Consulta virtual</span></div>
             </div>
             <div class="slide">
-              <p class="quote">“Excelente en ETS: sin juicios, directo y muy profesional. Me dio opciones y seguimiento. Me sentí acompañado.”</p>
-              <div class="who"><div><b>Paciente</b><div><span>VIH/ETS</span></div></div><span>★★★★★</span></div>
+              <p class="quote">“Viajaba a África y me ayudó con vacunas, profilaxis y un botiquín perfecto. Muy profesional.”</p>
+              <div class="who"><b>Paciente (anónimo)</b><span>Medicina del viajero</span></div>
             </div>
             <div class="slide">
-              <p class="quote">“Preparó mi viaje perfecto: vacunas, profilaxis y botiquín. Me explicó riesgos reales vs mitos.”</p>
-              <div class="who"><div><b>Paciente</b><div><span>Medicina del viajero</span></div></div><span>★★★★★</span></div>
-            </div>
-            <div class="slide">
-              <p class="quote">“Segunda opinión que cambió el rumbo: ordenó el caso, priorizó estudios y evitó antibióticos innecesarios.”</p>
-              <div class="who"><div><b>Paciente</b><div><span>Segunda opinión</span></div></div><span>★★★★★</span></div>
+              <p class="quote">“Segunda opinión clave: evitamos estudios innecesarios y ajustamos tratamiento con muy buen resultado.”</p>
+              <div class="who"><b>Paciente (anónimo)</b><span>Segunda opinión</span></div>
             </div>
           </div>
 
-          <div class="slider-controls" aria-label="Controles del carrusel">
-            <button class="ctrl" id="prev" type="button" aria-label="Anterior">← Anterior</button>
-            <button class="ctrl" id="next" type="button" aria-label="Siguiente">Siguiente →</button>
+          <div class="slider-controls" aria-label="Controles de carrusel">
+            <button class="ctrl" type="button" id="prev">‹ Anterior</button>
+            <button class="ctrl" type="button" id="next">Siguiente ›</button>
           </div>
         </div>
 
-        <div class="dots" id="dots" aria-label="Indicadores"></div>
+        <div class="dots" aria-label="Indicadores" id="dots"></div>
       </div>
     </section>
-
     <!-- FAQ -->
     <section class="anchor" id="faq">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Preguntas frecuentes</h2>
-            <p>Respuestas breves, claras y orientadas a acción. (Puedes ajustar el tono a tu preferencia.)</p>
-          </div>
+          <h2>Preguntas frecuentes</h2>
+          <p>Respuestas breves para que sepas si esta consulta es para ti y cómo prepararte.</p>
         </div>
 
-        <div class="grid-2">
-          <div>
-            <details>
-              <summary>
-                ¿Qué tipo de problemas resuelvo?
-                <span class="chev" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </summary>
-              <p class="faq-a">
-                VIH y ETS (incluyendo PrEP/PEP), infecciones recurrentes o complejas, interpretación de estudios,
-                fiebre prolongada, infecciones tropicales y evaluación pre-viaje (vacunas, profilaxis y botiquín).
-              </p>
-            </details>
+        <details>
+          <summary>
+            ¿Qué tipo de problemas resuelvo?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <p class="faq-a">
+            Principalmente: VIH y ETS (incluyendo PrEP/PEP), infecciones complejas o recurrentes, fiebre persistente,
+            interpretación de estudios, infecciones tropicales, y medicina del viajero (vacunas, profilaxis, botiquín y riesgos por destino).
+          </p>
+        </details>
 
-            <details>
-              <summary>
-                ¿Qué incluye la consulta virtual?
-                <span class="chev" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </summary>
-              <p class="faq-a">
-                Historia clínica dirigida, análisis del contexto (exposiciones y riesgos), revisión de estudios previos,
-                hipótesis diagnóstica y un plan por escrito (estudios, tratamiento, seguimiento y señales de alarma).
-              </p>
-            </details>
+        <details>
+          <summary>
+            ¿Qué incluye la consulta virtual?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <p class="faq-a">
+            Historia clínica dirigida, revisión de estudios relevantes, evaluación de riesgos, diagnóstico diferencial y un plan de manejo
+            accionable (estudios sugeridos, tratamiento cuando aplique, y signos de alarma). Si requieres valoración presencial, te orientaré
+            con criterios claros.
+          </p>
+        </details>
 
-            <details>
-              <summary>
-                ¿Cómo me preparo para la consulta?
-                <span class="chev" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </summary>
-              <p class="faq-a">
-                Ten a la mano: lista de síntomas con fechas, medicamentos (dosis), alergias, enfermedades previas,
-                estudios (PDF o fotos), y un resumen de lo que te preocupa/objetivo de la consulta.
-              </p>
-            </details>
+        <details>
+          <summary>
+            ¿Cómo me preparo para la consulta?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <p class="faq-a">
+            Ten a la mano: lista de síntomas con fechas, medicamentos y dosis, alergias, antecedentes relevantes, resultados de laboratorio o imagen
+            (PDF o fotos legibles), y preguntas específicas. Para viajes: itinerario, fechas, actividades (trekking, buceo, selva, etc.) y vacunas previas.
+          </p>
+        </details>
 
-            <details>
-              <summary>
-                ¿Puedo consultar por ETS con privacidad?
-                <span class="chev" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </summary>
-              <p class="faq-a">
-                Sí. La consulta es confidencial y sin juicios. Puedes preguntar sobre pruebas, tratamiento,
-                prevención y comunicación con parejas.
-              </p>
-            </details>
-          </div>
+        <details>
+          <summary>
+            ¿Atiendes PEP/PrEP y consultas sensibles?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <p class="faq-a">
+            Sí. Manejo PEP/PrEP con enfoque confidencial, sin juicios, y con seguimiento. En PEP, el tiempo importa (idealmente dentro de 72 horas).
+            Si estás en una situación urgente, busca atención inmediata.
+          </p>
+        </details>
 
-          <div>
-            <details>
-              <summary>
-                ¿Qué pasa si necesito estudios o tratamiento presencial?
-                <span class="chev" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </summary>
-              <p class="faq-a">
-                Si el caso requiere exploración física o procedimientos, te indicaré opciones y pasos para completar
-                la evaluación en tu ciudad (laboratorios, imagen, referencia) y cómo interpretar resultados.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                ¿Atiendo medicina del viajero para aventura/trabajo de campo?
-                <span class="chev" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </summary>
-              <p class="faq-a">
-                Sí. Adaptamos el plan según destino, temporada y actividades (expedición, buceo, selva, trabajo de campo),
-                comorbilidades y disponibilidad local de vacunas/medicamentos.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                ¿Ofreces seguimiento después de la consulta?
-                <span class="chev" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </summary>
-              <p class="faq-a">
-                Sí, dependiendo del caso: revisión de resultados, ajuste del plan y definición de un punto de control.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                ¿Qué NO es una consulta virtual?
-                <span class="chev" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </summary>
-              <p class="faq-a">
-                No sustituye urgencias. Si hay dificultad respiratoria severa, dolor torácico, alteración del estado mental,
-                sangrado importante o deterioro rápido, acude a urgencias.
-              </p>
-            </details>
-          </div>
-        </div>
+        <details>
+          <summary>
+            ¿Puedo pedir una segunda opinión?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <p class="faq-a">
+            Sí. Podemos revisar tu caso y tus estudios para aclarar hipótesis diagnósticas, optimizar tu plan y ayudarte a tomar decisiones informadas.
+            Cuando conviene, elaboro un resumen clínico para tu médico tratante.
+          </p>
+        </details>
       </div>
     </section>
 
-    <!-- CONSULTING -->
+    <!-- CONSULTORÍAS -->
     <section class="anchor" id="consultorias">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Consultorías</h2>
-            <p>Para organizaciones, expediciones y entornos complejos. Agenda una cita virtual para discutir necesidades o escríbeme por WhatsApp.</p>
-          </div>
+          <h2>Consultorías</h2>
+          <p>
+            Para personas, equipos u organizaciones: medicina del viajero avanzada, medicina expedicionaria y seguridad sanitaria en entornos complejos.
+          </p>
         </div>
 
         <div class="callout">
           <div>
-            <h3>Medicina del viajero · Seguridad sanitaria · Medicina expedicionaria</h3>
+            <h3>Medicina del viajero · Seguridad sanitaria · Expediciones</h3>
             <p>
-              Servicios posibles: evaluación de riesgo para viajes o misiones, planes de vacunación y profilaxis, kits médicos,
-              protocolos de respuesta ante enfermedad en campo, asesoría en bioseguridad y salud ocupacional en entornos complejos.
+              Podemos trabajar planes por destino, perfil de riesgo y actividad (empresa, escuela, grupo de expedición o viajeros individuales).
+              Incluye: prevención, botiquín, protocolos de evacuación, y recomendaciones operativas. Agenda una consulta virtual para explorar necesidades
+              o escribe por WhatsApp.
             </p>
           </div>
-          <div class="cta-row">
-            <a class="btn btn-primary" target="_blank" rel="noopener" href="TU-LINK-DE-GOOGLE-APPOINTMENTS">Agendar cita virtual</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://wa.me/52XXXXXXXXXX?text=Hola%20Dr.%20Rodrigo%2C%20me%20interesa%20una%20consultor%C3%ADa%20(empresa%2Fexpedici%C3%B3n).">WhatsApp</a>
+
+          <div class="cta-row" style="margin-top:4px">
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="TU-LINK-DE-GOOGLE-APPOINTMENTS">Agendar llamada</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://wa.me/52XXXXXXXXXX?text=Hola%20Dr.%20Rodrigo%2C%20me%20interesa%20una%20consultor%C3%ADa.">WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CHATBOT PLACEHOLDER -->
-    <section class="anchor" id="chatbot">
+    <section>
       <div class="container">
-        <div class="section-head">
+        <div class="chatbot" aria-label="Espacio para chatbot">
           <div>
-            <h2>Asistente (próximamente)</h2>
-            <p>Este espacio está reservado para tu chatbot. Aquí podrás incrustar el script cuando lo tengas listo.</p>
-          </div>
-        </div>
-
-        <div class="chatbot">
-          <div>
-            <b>Widget de chatbot</b>
-            <div style="height:6px"></div>
+            <b>Chatbot (próximamente)</b><br />
             <span>
-              Recomendación: colócalo como botón flotante (abajo a la derecha) para no interferir con el agendamiento.
-              Este bloque también puede convertirse en una tarjeta de “preguntas rápidas” para pre-triage.
+              Aquí podrás hacer preguntas rápidas sobre servicios, preparación para consulta y temas frecuentes. Este espacio está reservado para tu bot.
             </span>
           </div>
           <a class="btn" href="#contacto">Mientras tanto: WhatsApp</a>
@@ -1122,49 +1037,43 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACTO -->
     <section class="anchor" id="contacto">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Contacto</h2>
-            <p>Sin correo visible (anti-spam). La vía principal es agenda y WhatsApp.</p>
-          </div>
+          <h2>Contacto</h2>
+          <p>Agenda por calendario o escribe por WhatsApp para logística. No se publica correo para evitar spam.</p>
         </div>
 
         <div class="contact">
           <div class="card">
             <div class="label">WhatsApp</div>
             <div class="big">+52 XX XXXX XXXX</div>
-            <div class="note">Haz clic para abrir WhatsApp con un mensaje pre-llenado.</div>
-            <div class="cta-row" style="margin-top:12px">
+            <p class="note">Reemplaza el número por tu WhatsApp real en formato internacional.</p>
+            <div class="cta-row">
               <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/52XXXXXXXXXX?text=Hola%20Dr.%20Rodrigo%2C%20quiero%20agendar%20una%20consulta%20virtual.">Abrir WhatsApp</a>
-              <a class="btn" href="#agendar">Ver agenda</a>
             </div>
           </div>
 
           <div class="card">
-            <div class="label">Agendar consulta</div>
-            <div class="big">Google Calendar</div>
-            <div class="note">Agendamiento directo. Recibirás confirmación con el enlace de la videollamada (si aplica).</div>
-            <div class="cta-row" style="margin-top:12px">
-              <a class="btn btn-primary" target="_blank" rel="noopener" href="TU-LINK-DE-GOOGLE-APPOINTMENTS">Abrir calendario</a>
-              <a class="btn" href="#faq">Antes de agendar</a>
+            <div class="label">Agenda</div>
+            <div class="big">Calendario de consulta virtual</div>
+            <p class="note">Coloca aquí tu link real de Google Calendar Appointments (o tu herramienta de agenda preferida).</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" target="_blank" rel="noopener" href="TU-LINK-DE-GOOGLE-APPOINTMENTS">Agendar ahora</a>
+              <a class="btn" href="#inicio">Volver arriba</a>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- COLLABORATIONS -->
+    <!-- COLABORACIONES -->
     <section class="anchor" id="colaboraciones">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2>Colaboraciones</h2>
-            <p>Incluye aquí los logos oficiales. Puedes subir archivos a /assets/logos/ y reemplazar los placeholders.</p>
-          </div>
+          <h2>Colaboraciones</h2>
+          <p>Instituciones y organizaciones con las que he colaborado (logos/wordmarks pueden reemplazarse por imágenes propias).</p>
         </div>
 
         <div class="logos" aria-label="Logos">
@@ -1173,8 +1082,8 @@
           <div class="logo">Médicos Sin Fronteras</div>
           <div class="logo">DNDi</div>
           <div class="logo">ESCMID</div>
-          <div class="logo">AAHIVM</div>
-          <div class="logo">ISTM</div>
+          <div class="logo">American Academy of HIV Medicine</div>
+          <div class="logo">International Society of Travel Medicine</div>
           <div class="logo">PAHO</div>
           <div class="logo">CENAPRECE</div>
           <div class="logo">Hospital Médica Sur</div>
@@ -1183,81 +1092,98 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between">
-        <div>© <span id="year"></span> Dr. Rodrigo · Consulta virtual de infectología</div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap">
-          <a class="pill" href="#inicio">Volver arriba</a>
-          <a class="pill" href="#agendar">Agendar</a>
-          <a class="pill" href="#contacto">WhatsApp</a>
+    <footer>
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.3fr 0.7fr; gap:18px; align-items:start">
+          <div>
+            <p style="margin:0 0 10px"><b>Dr. Rodrigo Ville Benavides</b>, médico especialista en infectología y medicina interna.</p>
+            <p style="margin:0 0 10px">
+              Cédula profesional (médico cirujano): <b>8437077</b> (Universidad Autónoma de Guadalajara).<br />
+              Cédula de especialidad (medicina interna): <b>11214909</b> (Universidad Nacional Autónoma de México).<br />
+              Cédula de especialidad (infectología): <b>12025988</b> (Universidad Nacional Autónoma de México).
+            </p>
+            <p style="margin:0 0 10px"><b>Emergencias:</b> Este sitio web y la consulta virtual no son servicios de urgencias. En caso de una emergencia médica, llame al 911 o acuda al hospital más cercano.</p>
+            <p style="margin:0 0 10px"><b>Carácter informativo:</b> La información contenida en este sitio es de carácter informativo y no sustituye la valoración médica presencial o el diagnóstico profesional.</p>
+            <p style="margin:0 0 10px"><b>No automedicación:</b> No se automedique. Cualquier tratamiento mencionado aquí debe ser supervisado por un médico especialista.</p>
+            <p style="margin:0 0 10px"><b>Consultorio físico:</b> Av. Puente de Piedra 150, torre 1, consultorio 126. Colonia Toriello Guerra, Tlalpan, Ciudad de México, México. CP 14050.</p>
+          </div>
+
+          <div>
+            <p style="margin:0 0 10px"><b>Documentos</b></p>
+            <p style="margin:0 0 10px">
+              <a href="aviso-de-privacidad.html" style="color:inherit; text-decoration:underline">Aviso de privacidad</a>
+              <span style="color: var(--muted2)">(en proceso)</span>
+            </p>
+            <p style="margin:0 0 10px"><b>Aviso de publicidad COFEPRIS</b></p>
+            <p style="margin:0 0 10px; color: var(--muted)">Espacio reservado (en trámite).</p>
+            <p style="margin:0; color: var(--muted2)">© <span id="year"></span> Dr. Rodrigo Ville Benavides. Todos los derechos reservados.</p>
+          </div>
         </div>
       </div>
-      <div style="margin-top:12px; color: rgba(255,255,255,0.45); line-height:1.6">
-        Aviso: Este sitio ofrece información general y acceso a consulta virtual. No sustituye atención de urgencias.
-      </div>
-    </div>
-  </footer>
+    </footer>
+
+  </main>
 
   <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // testimonials slider
+    // Testimonials slider
     (function(){
-      const slidesEl = document.getElementById('slides');
-      if(!slidesEl) return;
-      const slideCount = slidesEl.children.length;
-      const dotsEl = document.getElementById('dots');
-      const prev = document.getElementById('prev');
-      const next = document.getElementById('next');
-      let idx = 0;
-      let timer = null;
+      var slides = document.getElementById('slides');
+      var dotsWrap = document.getElementById('dots');
+      var prev = document.getElementById('prev');
+      var next = document.getElementById('next');
+      if(!slides || !dotsWrap || !prev || !next) return;
 
-      function buildDots(){
-        if(!dotsEl) return;
-        for(let i=0;i<slideCount;i++){
-          const d = document.createElement('button');
-          d.className = 'dot' + (i===0 ? ' active' : '');
+      var total = slides.children.length;
+      var idx = 0;
+      var dots = [];
+
+      function renderDots(){
+        dotsWrap.innerHTML = '';
+        dots = [];
+        for(var i=0;i<total;i++){
+          var d = document.createElement('button');
+          d.className = 'dot' + (i===idx ? ' active' : '');
           d.type = 'button';
           d.setAttribute('aria-label', 'Ir a opinión ' + (i+1));
-          d.addEventListener('click', ()=>go(i,true));
-          dotsEl.appendChild(d);
+          (function(n){
+            d.addEventListener('click', function(){ idx=n; update(); });
+          })(i);
+          dotsWrap.appendChild(d);
+          dots.push(d);
         }
       }
 
-      function setDots(){
-        if(!dotsEl) return;
-        const dots = dotsEl.querySelectorAll('.dot');
-        dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+      function update(){
+        slides.style.transform = 'translateX(' + (-idx*100) + '%)';
+        for(var i=0;i<dots.length;i++){
+          dots[i].classList.toggle('active', i===idx);
+        }
       }
 
-      function go(n, user=false){
-        idx = (n + slideCount) % slideCount;
-        slidesEl.style.transform = `translateX(-${idx*100}%)`;
-        setDots();
-        if(user) restart();
-      }
+      prev.addEventListener('click', function(){
+        idx = (idx - 1 + total) % total;
+        update();
+      });
+      next.addEventListener('click', function(){
+        idx = (idx + 1) % total;
+        update();
+      });
 
-      function restart(){
-        if(timer) clearInterval(timer);
-        timer = setInterval(()=>go(idx+1,false), 5200);
-      }
+      renderDots();
+      update();
 
-      if(prev) prev.addEventListener('click', ()=>go(idx-1,true));
-      if(next) next.addEventListener('click', ()=>go(idx+1,true));
+      // auto-advance (optional)
+      var timer = setInterval(function(){ idx = (idx + 1) % total; update(); }, 6500);
+      slides.addEventListener('mouseenter', function(){ clearInterval(timer); });
+    })();
 
-      const slider = slidesEl.closest('.slider');
-      if(slider){
-        slider.addEventListener('mouseenter', ()=>{ if(timer) clearInterval(timer); });
-        slider.addEventListener('mouseleave', ()=> restart());
-      }
-
-      buildDots();
-      restart();
+    // Year in footer
+    (function(){
+      var y = document.getElementById('year');
+      if(y) y.textContent = new Date().getFullYear();
     })();
   </script>
+
 </body>
 </html>
