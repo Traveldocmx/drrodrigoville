@@ -1096,29 +1096,71 @@
     <footer>
       <div class="container">
         <div style="display:grid; grid-template-columns: 1.3fr 0.7fr; gap:18px; align-items:start">
+
+          <!-- Left: Professional identity + disclaimers -->
           <div>
-            <p style="margin:0 0 10px"><b>Dr. Rodrigo Ville Benavides</b>, médico especialista en infectología y medicina interna.</p>
+            <p style="margin:0 0 10px"><b>Dr. Rodrigo Ville Benavides</b></p>
+            <p style="margin:0 0 10px; color: var(--muted)">
+              Médico especialista en infectología y medicina interna.
+            </p>
+
             <p style="margin:0 0 10px">
               Cédula profesional (médico cirujano): <b>8437077</b> (Universidad Autónoma de Guadalajara).<br />
               Cédula de especialidad (medicina interna): <b>11214909</b> (Universidad Nacional Autónoma de México).<br />
               Cédula de especialidad (infectología): <b>12025988</b> (Universidad Nacional Autónoma de México).
             </p>
-            <p style="margin:0 0 10px"><b>Emergencias:</b> Este sitio web y la consulta virtual no son servicios de urgencias. En caso de una emergencia médica, llame al 911 o acuda al hospital más cercano.</p>
+
+            <p style="margin:0 0 10px"><b>Certificaciones CONACEM</b></p>
+
+            <p style="margin:0 0 10px">
+              <b>Consejo Mexicano de Medicina Interna:</b>
+              N° certificado: <b>04843-R24</b>. Libro 8. Foja 14.
+            </p>
+
+            <p style="margin:0 0 12px">
+              <b>Consejo Mexicano de Infectología:</b>
+              N° certificado: <b>1767</b>. Libro 2. Foja 399.
+            </p>
+
+            <a class="btn" target="_blank" rel="noopener" href="https://conacem.org.mx/buscador">
+              Verificar certificaciones en CONACEM
+            </a>
+
+            <p style="margin:16px 0 10px"><b>Emergencias:</b> Este sitio web y la consulta virtual no son servicios de urgencias. En caso de una emergencia médica, llame al 911 o acuda al hospital más cercano.</p>
             <p style="margin:0 0 10px"><b>Carácter informativo:</b> La información contenida en este sitio es de carácter informativo y no sustituye la valoración médica presencial o el diagnóstico profesional.</p>
             <p style="margin:0 0 10px"><b>No automedicación:</b> No se automedique. Cualquier tratamiento mencionado aquí debe ser supervisado por un médico especialista.</p>
+
             <p style="margin:0 0 10px"><b>Consultorio físico:</b> Av. Puente de Piedra 150, torre 1, consultorio 126. Colonia Toriello Guerra, Tlalpan, Ciudad de México, México. CP 14050.</p>
           </div>
 
+          <!-- Right: Documents + verification -->
           <div>
             <p style="margin:0 0 10px"><b>Documentos</b></p>
+
             <p style="margin:0 0 10px">
               <a href="aviso-de-privacidad.html" style="color:inherit; text-decoration:underline">Aviso de privacidad</a>
               <span style="color: var(--muted2)">(en proceso)</span>
             </p>
-            <p style="margin:0 0 10px"><b>Aviso de publicidad COFEPRIS</b></p>
-            <p style="margin:0 0 10px; color: var(--muted)">Espacio reservado (en trámite).</p>
+
+            <p style="margin:0 0 14px">
+              <a href="terminos.html" style="color:inherit; text-decoration:underline">Términos y condiciones</a>
+              <span style="color: var(--muted2)">(opcional)</span>
+            </p>
+
+            <p style="margin:0 0 10px"><b>Verificación SEP</b></p>
+            <p style="margin:0 0 12px; color: var(--muted)">
+              Puedes verificar mis cédulas en el Registro Nacional de Profesionistas (SEP).
+            </p>
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.cedulaprofesional.sep.gob.mx/">
+              Verificar Cédulas en SEP
+            </a>
+
+            <p style="margin:16px 0 10px"><b>Aviso de publicidad COFEPRIS</b></p>
+            <p style="margin:0 0 12px; color: var(--muted)">Espacio reservado (en trámite).</p>
+
             <p style="margin:0; color: var(--muted2)">© <span id="year"></span> Dr. Rodrigo Ville Benavides. Todos los derechos reservados.</p>
           </div>
+
         </div>
       </div>
     </footer>
@@ -1173,7 +1215,6 @@
       renderDots();
       update();
 
-      // auto-advance (optional)
       var timer = setInterval(function(){ idx = (idx + 1) % total; update(); }, 6500);
       slides.addEventListener('mouseenter', function(){ clearInterval(timer); });
     })();
@@ -1187,3 +1228,4 @@
 
 </body>
 </html>
+
