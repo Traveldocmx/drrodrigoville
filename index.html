@@ -1,14 +1,70 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es-MX" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Infectólogo en CDMX | Dr. Rodrigo Ville Benavides| VIH, PEP, PrEP, vacunas y medicina del viajero</title>
+    
+    <!-- =========================================
+         SEO BÁSICO & META ETIQUETAS
+         ========================================= -->
+    <title>Infectólogo en CDMX | Dr. Rodrigo Ville Benavides | VIH, PEP, PrEP, vacunas y medicina del viajero</title>
+    
+    <meta name="description" content="Dr. Rodrigo Ville Benavides, Infectólogo y Medicina Interna en CDMX. Especialista en VIH, PrEP, PEP, ETS, vacunas y medicina del viajero. Atención confidencial y humana. Agenda tu cita virtual o presencial.">
+    <meta name="keywords" content="Infectólogo CDMX, Dr. Rodrigo Ville Benavides, VIH, PrEP, PEP, Medicina del Viajero, Vacunas, Infectología, Medicina Interna, Especialista en Enfermedades Infecciosas e Infecciones, DoxyPEP">
+    <meta name="author" content="Dr. Rodrigo Ville Benavides">
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO LOCAL: GEOLOCALIZACIÓN -->
+    <meta name="geo.region" content="MX-CMX">
+    <meta name="geo.placename" content="Ciudad de México">
+    <meta name="geo.position" content="19.2886;-99.1332"> <!-- Tlalpan/Sur CDMX aprox -->
+    <meta name="ICBM" content="19.2886, -99.1332">
+
+    <!-- OPEN GRAPH (Para compartir en Facebook/WhatsApp/LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.drrodrigoville.com/"> <!-- Reemplazar con dominio real -->
+    <meta property="og:title" content="Infectólogo en CDMX | Dr. Rodrigo Ville Benavides">
+    <meta property="og:description" content="Atención médica especializada en VIH, PrEP, ETS y medicina del viajero con absoluta confidencialidad.">
+    <meta property="og:image" content="photo%20completa.jpg"> 
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Infectólogo en CDMX | Dr. Rodrigo Ville Benavides">
+    <meta name="twitter:description" content="Atención médica especializada en VIH, PrEP, PEP, ETS y medicina del viajero.">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- =========================================
+         DATOS ESTRUCTURADOS (SCHEMA.ORG)
+         Esto ayuda a Google a mostrar precios, dirección y especialidad
+         ========================================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "Dr. Rodrigo Ville Benavides",
+      "image": "photo%20completa.jpg",
+      "description": "Médico especialista en infectología y medicina interna, formado en el INCMNSZ y LSHTM. Atención en VIH, PrEP, ETS y medicina del viajero.",
+      "medicalSpecialty": ["Infectious Disease", "Internal Medicine", "Travel Medicine"],
+      "priceRange": "$$",
+      "telephone": "+525579262419",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tlalpan",
+        "addressRegion": "Ciudad de México",
+        "postalCode": "14000",
+        "addressCountry": "MX"
+      },
+      "knowsAbout": ["VIH", "PrEP", "PEP", "Enfermedades de transmisión sexual", "Medicina del viajero", "Vacunación"],
+      "url": "https://www.drrodrigoville.com/" 
+    }
+    </script>
 
     <style>
         :root {
@@ -74,6 +130,7 @@
             font-weight: 700;
             font-size: 0.7rem;
             text-align: center;
+            cursor: default;
         }
         .trust-logo:hover {
             filter: grayscale(0%);
@@ -108,27 +165,27 @@
 <body class="bg-medical-glow">
 
     <!-- Banner de Urgencia PEP/Doxy -->
-    <a href="https://wa.me/525579262419?text=URGENCIA%20PEP" class="urgency-banner block w-full text-white py-3 px-6 relative z-[60] text-center shadow-lg transition-transform hover:scale-[1.01]">
+    <a href="https://wa.me/525579262419?text=URGENCIA%20PEP" class="urgency-banner block w-full text-white py-3 px-6 relative z-[60] text-center shadow-lg transition-transform hover:scale-[1.01]" aria-label="Contactar urgencia por WhatsApp para PEP">
         <div class="max-w-7xl mx-auto flex items-center justify-center gap-3">
             <span class="flex h-2 w-2 relative">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
             </span>
             <span class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">
-                ¿Exposición reciente a VIH o ETS? Averigua si eres candidato/a a PEP o DoxyPEP: Haz clic aquí
+                ¿Exposición reciente a VIH o ETS? Averigua si requieres PEP o DoxyPEP: Haz clic aquí
             </span>
         </div>
     </a>
 
     <!-- Navegación -->
-    <nav class="sticky top-0 w-full z-50 glass-nav">
+    <nav class="sticky top-0 w-full z-50 glass-nav" aria-label="Navegación principal">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="flex flex-col leading-tight">
                     <span class="text-xl font-black text-slate-900 tracking-tighter">DR. RODRIGO VILLE BENAVIDES</span>
                     <div class="flex items-center gap-2">
                         <span class="h-1 w-1 bg-blue-600 rounded-full"></span>
-                        <span class="text-[9px] uppercase tracking-[0.3em] text-blue-600 font-bold">Infectología, medicina interna y salud internacional</span>
+                        <h1 class="text-[9px] uppercase tracking-[0.3em] text-blue-600 font-bold m-0 p-0 inline">Infectología, medicina interna y salud internacional</h1>
                     </div>
                 </div>
             </div>
@@ -139,12 +196,12 @@
                 <a href="#acreditaciones" class="hover:text-blue-600 transition-colors">Certificaciones</a>
                 <a href="#opiniones" class="hover:text-blue-600 transition-colors">Testimonios</a>
                 <div class="h-4 w-[1px] bg-slate-200"></div>
-                <a href="https://calendar.app.google/2MVAJGqn6tb7ADtc6" class="btn-primary px-6 py-3 rounded-full text-white uppercase tracking-widest text-[9px]">
+                <a href="https://calendar.app.google/2MVAJGqn6tb7ADtc6" class="btn-primary px-6 py-3 rounded-full text-white uppercase tracking-widest text-[9px]" rel="nofollow">
                     Agendar cita
                 </a>
             </div>
 
-            <button class="lg:hidden text-slate-900">
+            <button class="lg:hidden text-slate-900" aria-label="Abrir menú móvil">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
             </button>
         </div>
@@ -160,20 +217,20 @@
                     Consultas virtuales disponibles
                 </div>
                 
-                <h1 class="text-5xl md:text-[5.5rem] font-extrabold text-slate-900 leading-[0.9] tracking-tighter">
+                <h2 class="text-5xl md:text-[5.5rem] font-extrabold text-slate-900 leading-[0.9] tracking-tighter">
                     Medicina con <span class="text-gradient">trato humano y de excelencia </span> en enfermedades infecciosas.
-                </h1>
+                </h2>
                 
                 <p class="text-xl text-slate-500 leading-relaxed max-w-xl font-medium">
                     Atención médica especializada en VIH, PrEP, ETS, medicina interna y medicina del viajero con absoluta confidencialidad y discreción. Consultoría experta en enfermedades infecciosas para ONGs, industria farmacéutica, expediciones y proyectos de salud global.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="https://calendar.app.google/2MVAJGqn6tb7ADtc6" class="btn-primary px-10 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl text-lg group">
+                    <a href="https://calendar.app.google/2MVAJGqn6tb7ADtc6" class="btn-primary px-10 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl text-lg group" rel="nofollow">
                         Agendar Consulta
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </a>
-                    <a href="https://wa.me/525579262419?text=Hola%20Dr.%20Rodrigo%2C%20le%20contacto%20por%20temas%20de%20Speaker%20/%20Colaboraci%C3%B3n%20Industrial." class="px-10 py-5 rounded-2xl font-bold border-2 border-slate-200 text-slate-700 hover:bg-slate-50 transition-all text-center">
+                    <a href="https://wa.me/525579262419?text=Hola%20Dr.%20Rodrigo%2C%20le%20contacto%20por%20temas%20de%20Speaker%20/%20Colaboraci%C3%B3n%20Industrial." class="px-10 py-5 rounded-2xl font-bold border-2 border-slate-200 text-slate-700 hover:bg-slate-50 transition-all text-center" rel="nofollow">
                         Colaboraciones profesionales
                     </a>
                 </div>
@@ -189,7 +246,7 @@
 
             <div class="order-1 lg:order-2">
                 <div class="hero-img-container aspect-[4/5] lg:aspect-square">
-                    <img src="photo%20completa.jpg" alt="Dr. Rodrigo Ville Benavides" class="w-full h-full object-cover" 
+                    <img src="photo%20completa.jpg" alt="Dr. Rodrigo Ville Benavides, Infectólogo en consultorio" class="w-full h-full object-cover" 
                          onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1000'">
                 </div>
             </div>
@@ -228,7 +285,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-6">
                 
                 <!-- VIH / ETS -->
-                <div class="bento-card lg:col-span-8 bg-slate-900 text-white group">
+                <article class="bento-card lg:col-span-8 bg-slate-900 text-white group">
                     <div class="h-12 w-12 bg-blue-600 rounded-xl flex items-center justify-center mb-8">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                     </div>
@@ -240,34 +297,34 @@
                         <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider">atención rápida</span>
                         <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider">Ambiente seguro y neutro</span>
                     </div>
-                </div>
+                </article>
 
                 <!-- Expats -->
-                <div class="bento-card lg:col-span-4 border-2 border-blue-50 bg-blue-50/30">
+                <article class="bento-card lg:col-span-4 border-2 border-blue-50 bg-blue-50/30">
                     <div class="mb-6">
                         <span class="text-blue-600 font-black text-[10px] uppercase tracking-widest">International health</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">Expats, VIPs & artists</h3>
                     <p class="text-slate-600 text-sm font-medium leading-relaxed">Bilingual medical care for international travellers and expats. Tailored support, logistics and care for high-profile personalities who prioritize confidenciality and safety.</p>
-                </div>
+                </article>
 
                 <!-- Travel Med -->
-                <div class="bento-card lg:col-span-4">
+                <article class="bento-card lg:col-span-4">
                     <h3 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">Medicina del viajero</h3>
                     <p class="text-slate-500 text-sm font-medium leading-relaxed">Certificados internacionales de Fiebre Amarilla, profilaxis de malaria y asesoría personalizada para destinos exóticos.</p>
-                </div>
+                </article>
 
                 <!-- Medicina Interna -->
-                <div class="bento-card lg:col-span-4">
+                <article class="bento-card lg:col-span-4">
                     <h3 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">Medicina interna</h3>
                     <p class="text-slate-500 text-sm font-medium leading-relaxed">Manejo especializado de enfermedades crónicas, integración diagnóstica y valoraciones preoperatorias de alta precisión.</p>
-                </div>
+                </article>
 
                 <!-- Casos Complejos -->
-                <div class="bento-card lg:col-span-4">
+                <article class="bento-card lg:col-span-4">
                     <h3 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">Casos complejos</h3>
                     <p class="text-slate-500 text-sm font-medium leading-relaxed">Diagnóstico de fiebre de origen desconocido y tratamiento de infecciones complejas o por bacterias multirresistentes. Rapidez y búsqueda de efectividad diagnóstica ante el misterio médico.</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -288,7 +345,7 @@
                 
                 <!-- Expediciones -->
                 <div class="group relative h-[500px] rounded-[2.5rem] overflow-hidden">
-                    <img src="image_47c45d.jpg" alt="Medicina de Expedición" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    <img src="image_47c45d.jpg" alt="Medicina de Expedición en entornos extremos" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                          onerror="this.src='https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&q=80&w=1000'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                     <div class="absolute bottom-0 p-8">
@@ -300,7 +357,7 @@
 
                 <!-- Speaker & Industry -->
                 <div class="group relative h-[500px] rounded-[2.5rem] overflow-hidden">
-                    <img src="image_47c4db.jpg" alt="Colaboraciones Industriales" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    <img src="image_47c4db.jpg" alt="Colaboraciones Industriales y Speaker médico" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                          onerror="this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1000'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                     <div class="absolute bottom-0 p-8">
@@ -336,7 +393,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Cert 1 -->
-                <a href="https://www.istm.org/clinic-directory/" target="_blank" class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-slate-50 transition-all">
+                <a href="https://www.istm.org/clinic-directory/" target="_blank" rel="noopener noreferrer" class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-slate-50 transition-all">
                     <p class="text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-4">Certificado</p>
                     <h4 class="text-base font-bold text-slate-900 leading-tight">Certificate of Travel Health (CTH)</h4>
                     <p class="text-slate-500 text-xs mt-3">International Society of Travel Medicine</p>
@@ -348,7 +405,7 @@
                     <p class="text-slate-500 text-xs mt-3">LSHTM, United Kingdom</p>
                 </div>
                 <!-- Cert 3 -->
-                <a href="https://www.hcid-training.co.uk/" target="_blank" class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-slate-50 transition-all">
+                <a href="https://www.hcid-training.co.uk/" target="_blank" rel="noopener noreferrer" class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-slate-50 transition-all">
                     <p class="text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-4">Global Security</p>
                     <h4 class="text-base font-bold text-slate-900 leading-tight">Trainer in High Consequence Infectious Diseases (HCID)</h4>
                     <p class="text-slate-500 text-xs mt-3">HCID Training UK</p>
@@ -381,14 +438,14 @@
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 items-center">
             <div class="w-full lg:w-2/5 relative">
                 <div class="aspect-[3/4] rounded-[4rem] overflow-hidden shadow-2xl bg-white border-[10px] border-white transform lg:-rotate-3 hover:rotate-0 transition-all duration-700">
-                    <img src="photo%20msf.jpg" alt="Dr. Rodrigo Ville MSF" class="w-full h-full object-cover"
+                    <img src="photo%20msf.jpg" alt="Dr. Rodrigo Ville MSF, misión humanitaria" loading="lazy" class="w-full h-full object-cover"
                          onerror="this.src='https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1000'">
                 </div>
             </div>
             <div class="w-full lg:w-3/5 space-y-12">
                 <h2 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tighter leading-[0.9]">Dr. Rodrigo <br> Ville Benavides</h2>
                 <div class="space-y-8 text-slate-600 font-medium leading-relaxed text-xl">
-                    <p>Médico especialista en <span class="text-slate-900 font-bold decoration-blue-500 decoration-4 underline underline-offset-4">infectología y medicina Interna</span>, certificado, formado en el Instituto Nacional de Nutrición Salvador Zubirán y la London School of Hygiene and Tropical Medicine.</p>
+                    <p>Médico especialista en <span class="text-slate-900 font-bold decoration-blue-500 decoration-4 underline underline-offset-4">infectología y medicina interna</span>, formado en el Instituto Nacional de Nutrición Salvador Zubirán y la London School of Hygiene and Tropical Medicine.</p>
                     <p>Mi trayectoria integra la excelencia clínica y académica con la respuesta humanitaria internacional. He colaborado con Médicos Sin Fronteras (MSF) y otras organizaciones en diversos contextos y países, lo que me permite abordar la salud desde una perspectiva global, resolutiva y profundamente humana.</p>
                     <p>Priorizo la privacidad y la agilidad diagnóstica, adecuándome a las necesidades de cada paciente, ya sea en un consultorio privado o en una expedición remota.</p>
                 </div>
@@ -404,7 +461,7 @@
                     <h2 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tighter">Voces de confianza.</h2>
                     <p class="text-slate-500 text-xl font-medium">Excelencia avalada por pacientes y profesionales de la industria.</p>
                 </div>
-                <a href="https://www.doctoralia.com.mx/rodrigo-ville-benavides/infectologo-internista/tlalpan" target="_blank" class="bg-white text-slate-900 px-8 py-5 rounded-2xl font-bold flex items-center gap-3 hover:bg-slate-900 hover:text-white transition-all shadow-sm border border-slate-200">
+                <a href="https://www.doctoralia.com.mx/rodrigo-ville-benavides/infectologo-internista/tlalpan" target="_blank" rel="noopener noreferrer" class="bg-white text-slate-900 px-8 py-5 rounded-2xl font-bold flex items-center gap-3 hover:bg-slate-900 hover:text-white transition-all shadow-sm border border-slate-200">
                     Ver opiniones en Doctoralia
                 </a>
             </div>
@@ -525,14 +582,14 @@
                 <div class="grid grid-cols-2 gap-8 text-xs font-medium text-slate-500">
                     <div class="space-y-2">
                         <p class="font-bold text-slate-900 uppercase text-[9px] tracking-widest text-slate-400">Cédulas profesionales</p>
-                        <p>Mmédico cirujano: 8437077</p>
+                        <p>Médico cirujano: 8437077</p>
                         <p>Infectología: 12025988</p>
                         <p>Medicina interna: 11214909</p>
                     </div>
                     <div class="space-y-2">
                         <p class="font-bold text-slate-900 uppercase text-[9px] tracking-widest text-slate-400">Certificaciones CONACEM</p>
-                        <p>Consejo infectología: 1767</p>
-                        <p>Consejo medicina interna.: 04843-R24</p>
+                        <p>Consejo de infectología: 1767.</p>
+                        <p>Consejo de medicina interna.: 04843-R24.</p>
                     </div>
                 </div>
             </div>
@@ -540,15 +597,15 @@
             <div class="space-y-6">
                 <p class="font-bold text-slate-900 uppercase text-[9px] tracking-widest">Contacto</p>
                 <ul class="space-y-4 text-xs font-bold text-slate-600">
-                    <li><a href="https://wa.me/525579262419" class="hover:text-blue-600 transition-colors uppercase tracking-widest">WhatsApp</a></li>
-                    <li><a href="mailto:contacto@drrodrigoville.com" class="hover:text-blue-600 transition-colors uppercase tracking-widest">Email</a></li>
+                    <li><a href="https://wa.me/525579262419" class="hover:text-blue-600 transition-colors uppercase tracking-widest" aria-label="Enviar mensaje de WhatsApp">WhatsApp</a></li>
+                    <li><a href="mailto:contacto@drrodrigoville.com" class="hover:text-blue-600 transition-colors uppercase tracking-widest" aria-label="Enviar correo electrónico">Email</a></li>
                 </ul>
             </div>
 
             <div class="space-y-6">
                 <p class="font-bold text-slate-900 uppercase text-[9px] tracking-widest">Verificación</p>
-                <a href="https://www.cedulaprofesional.sep.gob.mx/" target="_blank" class="block bg-slate-50 p-6 rounded-2xl border border-slate-100 text-[10px] font-black uppercase tracking-widest hover:bg-blue-50 transition-colors">
-                    Consultar cedulas profesionales
+                <a href="https://www.cedulaprofesional.sep.gob.mx/" target="_blank" rel="noopener noreferrer" class="block bg-slate-50 p-6 rounded-2xl border border-slate-100 text-[10px] font-black uppercase tracking-widest hover:bg-blue-50 transition-colors">
+                    Consultar cédulas profesionales
                 </a>
             </div>
         </div>
@@ -558,7 +615,7 @@
                 <p><span class="text-slate-900">Emergencias:</span> Llame al 911 o acuda a urgencias en caso de emergencia médica o si require PEP y no contesto en 15 minutos.</p>
                 <p><span class="text-slate-900">Disclaimer:</span> Este sitio no constituye un diagnóstico médico profesional.</p>
                 <p><span class="text-slate-900">No se automedique:</span> Todo fármaco mencionado en este sitio requiere valoración médica.</p>
-                <p><span class="text-slate-900">Aviso de privacidad</span> Link.</p>
+                <p><span class="text-slate-900">Aviso de privacidad</span> <a href="#" aria-label="Leer aviso de privacidad">Link</a>.</p>
             </div>
             <p>© 2026 Dr. Rodrigo Ville Benavides. Todos los derechos reservados | Aviso de publicidad COFEPRIS: En trámite</p>
         </div>
