@@ -9,11 +9,10 @@
          ========================================= -->
     <title>Infectólogo en CDMX | Dr. Rodrigo Ville Benavides | VIH, PEP, PrEP, vacunas y medicina del viajero</title>
     
-    <!-- ETIQUETA CANONICAL (NUEVO) -->
+    <!-- ETIQUETA CANONICAL -->
     <link rel="canonical" href="https://www.drrodrigoville.com/">
 
-    <!-- FAVICON MÉDICO (NUEVO) -->
-    <!-- Icono SVG codificado en base64 para no depender de archivos externos -->
+    <!-- FAVICON MÉDICO -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚕️%3C/text%3E%3C/svg%3E">
     
     <meta name="description" content="Dr. Rodrigo Ville Benavides, Infectólogo y Medicina Interna en CDMX. Especialista en VIH, PrEP, PEP, ETS, vacunas y medicina del viajero. Atención confidencial y humana. Agenda tu cita virtual o presencial.">
@@ -21,13 +20,13 @@
     <meta name="author" content="Dr. Rodrigo Ville Benavides">
     <meta name="robots" content="index, follow">
 
-    <!-- SEO LOCAL: GEOLOCALIZACIÓN -->
+    <!-- SEO LOCAL -->
     <meta name="geo.region" content="MX-CMX">
     <meta name="geo.placename" content="Ciudad de México">
-    <meta name="geo.position" content="19.2886;-99.1332"> <!-- Tlalpan/Sur CDMX aprox -->
+    <meta name="geo.position" content="19.2886;-99.1332">
     <meta name="ICBM" content="19.2886, -99.1332">
 
-    <!-- OPEN GRAPH (Para compartir en Facebook/WhatsApp/LinkedIn) -->
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.drrodrigoville.com/"> 
     <meta property="og:title" content="Infectólogo en CDMX | Dr. Rodrigo Ville Benavides">
@@ -47,9 +46,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- =========================================
-         DATOS ESTRUCTURADOS (SCHEMA.ORG)
-         ========================================= -->
+    <!-- DATOS ESTRUCTURADOS -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -86,6 +83,7 @@
             background-color: #FFFFFF; 
             color: #1E293B;
             letter-spacing: -0.02em;
+            overflow-x: hidden; /* Prevenir scroll horizontal accidental */
         }
 
         .bg-medical-glow {
@@ -94,20 +92,46 @@
         }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            transition: all 0.3s ease;
         }
 
+        /* Botón primario con efecto Shine */
         .btn-primary {
             background-color: var(--midnight);
             color: white;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: none;
+            z-index: -1;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.25);
+        }
+
+        .btn-primary:hover::after {
+            animation: shine 1.5s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         .bento-card {
@@ -115,24 +139,24 @@
             border: 1px solid #F1F5F9;
             border-radius: 2rem;
             padding: 2.5rem;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
             display: flex;
             flex-direction: column;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
         }
 
         .bento-card:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-6px);
-            box-shadow: 0 30px 60px -12px rgba(15, 23, 42, 0.12);
+            border-color: #BFDBFE; /* Azul muy suave */
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15); /* Sombra azulada sutil */
         }
 
         .trust-logo {
             filter: grayscale(100%);
-            opacity: 0.5;
+            opacity: 0.4;
             transition: all 0.4s ease;
             font-weight: 700;
             font-size: 0.7rem;
@@ -150,13 +174,25 @@
             border-radius: 3rem;
             overflow: hidden;
             box-shadow: 0 50px 100px -20px rgba(15, 23, 42, 0.2);
+            z-index: 10;
+        }
+
+        /* Blob decorativo detrás de la foto principal */
+        .hero-blob {
+            position: absolute;
+            top: 10%;
+            right: -10%;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, #DBEAFE 0%, transparent 70%);
+            z-index: 0;
+            opacity: 0.6;
         }
 
         .urgency-banner {
             background: linear-gradient(90deg, #E11D48 0%, #9F1239 100%);
         }
 
-        /* ANIMACIÓN LATIDO PARA EL BOTÓN PEP (NUEVO) */
         @keyframes heartbeat {
             0% { transform: scale(1); }
             5% { transform: scale(1.02); filter: brightness(1.1); }
@@ -172,12 +208,12 @@
         }
 
         .text-gradient {
-            background: linear-gradient(to bottom right, #0F172A, #2563EB);
+            background: linear-gradient(to right, #0F172A 20%, #2563EB 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* WHATSAPP FLOATING BUTTON (NUEVO) */
+        /* WHATSAPP FLOATING BUTTON */
         .whatsapp-float {
             background-color: var(--whatsapp-green);
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
@@ -185,11 +221,10 @@
             z-index: 100;
         }
         .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
         }
         
-        /* Tooltip del botón WhatsApp */
         .whatsapp-tooltip {
             opacity: 0;
             visibility: hidden;
@@ -202,23 +237,28 @@
             transform: translateX(0);
         }
 
+        /* Scroll Reveal Animation Classes */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; border: 2px solid #f8fafc; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
 <body class="bg-medical-glow relative">
 
-    <!-- =========================================
-         GOOGLE ANALYTICS (NUEVO)
-         Pegar script de GA4 aquí
-         ========================================= -->
-    <!-- GOOGLE ANALYTICS -->
-
-
-    <!-- Banner de Urgencia PEP/Doxy (Con animación mejorada) -->
+    <!-- Banner de Urgencia PEP/Doxy -->
     <a href="https://wa.me/525579262419?text=URGENCIA%20PEP" class="urgency-banner animate-attention block w-full text-white py-3 px-6 relative z-[60] text-center shadow-lg hover:shadow-xl transition-shadow" aria-label="Contactar urgencia por WhatsApp para PEP">
         <div class="max-w-7xl mx-auto flex items-center justify-center gap-3">
             <span class="flex h-2 w-2 relative">
@@ -236,19 +276,31 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="flex flex-col leading-tight">
-                    <span class="text-xl font-black text-slate-900 tracking-tighter">DR. RODRIGO VILLE BENAVIDES</span>
+                    <span class="text-xl font-black text-slate-900 tracking-tighter hover:text-blue-600 transition-colors cursor-default">DR. RODRIGO VILLE</span>
                     <div class="flex items-center gap-2">
-                        <span class="h-1 w-1 bg-blue-600 rounded-full"></span>
-                        <h1 class="text-[9px] uppercase tracking-[0.3em] text-blue-600 font-bold m-0 p-0 inline">Infectología, medicina interna y salud internacional</h1>
+                        <span class="h-1.5 w-1.5 bg-blue-600 rounded-full"></span>
+                        <h1 class="text-[9px] uppercase tracking-[0.25em] text-blue-600 font-bold m-0 p-0 inline">Infectología & Medicina Global</h1>
                     </div>
                 </div>
             </div>
             
             <div class="hidden lg:flex items-center gap-8 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500">
-                <a href="#servicios" class="hover:text-blue-600 transition-colors">Servicios</a>
-                <a href="#experto" class="hover:text-blue-600 transition-colors">Consultoría</a>
-                <a href="#acreditaciones" class="hover:text-blue-600 transition-colors">Certificaciones</a>
-                <a href="#opiniones" class="hover:text-blue-600 transition-colors">Testimonios</a>
+                <a href="#servicios" class="hover:text-blue-600 transition-colors relative group">
+                    Servicios
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#experto" class="hover:text-blue-600 transition-colors relative group">
+                    Consultoría
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#acreditaciones" class="hover:text-blue-600 transition-colors relative group">
+                    Certificaciones
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#opiniones" class="hover:text-blue-600 transition-colors relative group">
+                    Testimonios
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                </a>
                 <div class="h-4 w-[1px] bg-slate-200"></div>
                 <a href="https://calendar.app.google/2MVAJGqn6tb7ADtc6" class="btn-primary px-6 py-3 rounded-full text-white uppercase tracking-widest text-[9px]" rel="nofollow">
                     Agendar cita
@@ -262,21 +314,24 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="pt-20 pb-32 px-6">
+    <header class="pt-20 pb-32 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             
-            <div class="space-y-10 order-2 lg:order-1">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-widest border border-blue-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4" /></svg>
-                    Consultas virtuales disponibles
+            <div class="space-y-10 order-2 lg:order-1 reveal-on-scroll">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-widest border border-blue-100 hover:bg-blue-100 transition-colors cursor-default">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Consultas virtuales disponibles hoy
                 </div>
                 
-                <h2 class="text-5xl md:text-[5.5rem] font-extrabold text-slate-900 leading-[0.9] tracking-tighter">
-                    Medicina con <span class="text-gradient">trato humano y de excelencia </span> en enfermedades infecciosas.
+                <h2 class="text-5xl md:text-[5.5rem] font-extrabold text-slate-900 leading-[0.95] tracking-tighter">
+                    Medicina con <span class="text-gradient">trato humano</span> y de excelencia.
                 </h2>
                 
                 <p class="text-xl text-slate-500 leading-relaxed max-w-xl font-medium">
-                    Atención médica especializada en VIH, PrEP, ETS, medicina interna y medicina del viajero con absoluta confidencialidad y discreción. Consultoría experta en enfermedades infecciosas para ONGs, industria farmacéutica, expediciones y proyectos de salud global.
+                    Atención médica especializada en VIH, PrEP, ETS, medicina interna y medicina del viajero. Confidencialidad absoluta, diagnósticos precisos y un enfoque libre de juicios.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
@@ -284,23 +339,24 @@
                         Agendar Consulta
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </a>
-                    <a href="https://wa.me/525579262419?text=Hola%20Dr.%20Rodrigo%2C%20le%20contacto%20por%20temas%20de%20Speaker%20/%20Colaboraci%C3%B3n%20Industrial." class="px-10 py-5 rounded-2xl font-bold border-2 border-slate-200 text-slate-700 hover:bg-slate-50 transition-all text-center" rel="nofollow">
-                        Colaboraciones profesionales
+                    <a href="https://wa.me/525579262419?text=Hola%20Dr.%20Rodrigo%2C%20le%20contacto%20por%20temas%20de%20Speaker%20/%20Colaboraci%C3%B3n%20Industrial." class="px-10 py-5 rounded-2xl font-bold border-2 border-slate-200 text-slate-700 hover:bg-white hover:border-slate-300 hover:shadow-lg transition-all text-center" rel="nofollow">
+                        Colaboraciones
                     </a>
                 </div>
 
                 <div class="flex items-center gap-6 pt-8 border-t border-slate-100">
                     <div class="flex -space-x-3">
-                        <div class="h-10 w-10 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold">5.0</div>
-                        <div class="h-10 w-10 rounded-full bg-slate-800 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold">⭐</div>
+                        <div class="h-10 w-10 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold shadow-md">5.0</div>
+                        <div class="h-10 w-10 rounded-full bg-slate-800 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold shadow-md">⭐</div>
                     </div>
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">+250 Pacientes verificados satisfechos en <a href="https://www.doctoralia.com.mx/rodrigo-ville-benavides/infectologo-internista/tlalpan" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Doctoralia</a></p>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">+250 Pacientes verificados en <a href="https://www.doctoralia.com.mx/rodrigo-ville-benavides/infectologo-internista/tlalpan" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline decoration-2">Doctoralia</a></p>
                 </div>
             </div>
 
-            <div class="order-1 lg:order-2">
-                <div class="hero-img-container aspect-[4/5] lg:aspect-square">
-                    <img src="photo%20completa.jpg" alt="Dr. Rodrigo Ville Benavides, Infectólogo en consultorio" class="w-full h-full object-cover" 
+            <div class="order-1 lg:order-2 relative reveal-on-scroll">
+                <div class="hero-blob"></div> <!-- Decoración de fondo -->
+                <div class="hero-img-container aspect-[4/5] lg:aspect-square relative">
+                    <img src="photo%20completa.jpg" alt="Dr. Rodrigo Ville Benavides, Infectólogo en consultorio" class="w-full h-full object-cover transform transition-transform duration-1000 hover:scale-105" 
                          onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1000'">
                 </div>
             </div>
@@ -308,8 +364,8 @@
     </header>
 
     <!-- Barra de Confianza -->
-    <section class="py-20 bg-slate-50 border-y border-slate-200/50">
-        <div class="max-w-7xl mx-auto px-6">
+    <section class="py-20 bg-slate-50/50 border-y border-slate-200/50">
+        <div class="max-w-7xl mx-auto px-6 reveal-on-scroll">
             <p class="text-center text-[9px] font-black uppercase tracking-[0.5em] text-slate-400 mb-12">Experiencia clínica e institucional de nivel global</p>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-12 items-center opacity-70">
                 <div class="trust-logo">FUNDACIÓN <br> CARLOS SLIM</div>
@@ -331,53 +387,53 @@
     <!-- Clínica: Servicios -->
     <section id="servicios" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-20 text-center lg:text-left">
+            <div class="mb-20 text-center lg:text-left reveal-on-scroll">
                 <h2 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tighter mb-6">Atención clínica <span class="text-blue-600">premium</span></h2>
-                <p class="text-slate-500 text-xl font-medium max-w-2xl italic">"Atención cálida, humanista, individualizada y libre de juicios para pacientes que requiren confidencialidad y seguridad máximas."</p>
+                <p class="text-slate-500 text-xl font-medium max-w-2xl italic">Atención cálida, humanista, individualizada y libre de juicios para pacientes que priorizan su seguridad y confidencialidad.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-6">
                 
                 <!-- VIH / ETS -->
-                <article class="bento-card lg:col-span-8 bg-slate-900 text-white group">
-                    <div class="h-12 w-12 bg-blue-600 rounded-xl flex items-center justify-center mb-8">
+                <article class="bento-card lg:col-span-8 bg-slate-900 text-white group reveal-on-scroll">
+                    <div class="h-12 w-12 bg-blue-600 rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-blue-900/50">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                     </div>
                     <h3 class="text-3xl font-bold mb-4">Salud Sexual: VIH, PrEP, PEP Y ETS</h3>
                     <p class="text-slate-400 text-lg leading-relaxed mb-8 max-w-2xl">Manejo experto de VIH y protocolos de prevención (PrEP/PEP) con absoluta discreción. Diagnóstico y tratamiento integral de sífilis, clamidia, hepatitis, gonorrea y otras ETS.</p>
                     <div class="mt-auto flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider">Confidencial</span>
-                        <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider">Sin Estigma</span>
-                        <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider">atención rápida</span>
-                        <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider">Ambiente seguro y neutro</span>
+                        <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">Confidencial</span>
+                        <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">Sin Estigma</span>
+                        <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">Atención rápida</span>
+                        <span class="px-4 py-2 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">Espacio seguro</span>
                     </div>
                 </article>
 
                 <!-- Expats -->
-                <article class="bento-card lg:col-span-4 border-2 border-blue-50 bg-blue-50/30">
+                <article class="bento-card lg:col-span-4 border-2 border-blue-50 bg-blue-50/30 reveal-on-scroll" style="transition-delay: 100ms;">
                     <div class="mb-6">
-                        <span class="text-blue-600 font-black text-[10px] uppercase tracking-widest">International health</span>
+                        <span class="text-blue-600 font-black text-[10px] uppercase tracking-widest bg-blue-100/50 px-3 py-1 rounded-full">International health</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">Expats, VIPs & artists</h3>
                     <p class="text-slate-600 text-sm font-medium leading-relaxed">Bilingual medical care for international travellers and expats. Tailored support, logistics and care for high-profile personalities who prioritize confidenciality and safety.</p>
                 </article>
 
                 <!-- Travel Med -->
-                <article class="bento-card lg:col-span-4">
+                <article class="bento-card lg:col-span-4 reveal-on-scroll">
                     <h3 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">Medicina del viajero</h3>
                     <p class="text-slate-500 text-sm font-medium leading-relaxed">Certificados internacionales de Fiebre Amarilla, profilaxis de malaria y asesoría personalizada para destinos exóticos.</p>
                 </article>
 
                 <!-- Medicina Interna -->
-                <article class="bento-card lg:col-span-4">
+                <article class="bento-card lg:col-span-4 reveal-on-scroll" style="transition-delay: 100ms;">
                     <h3 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">Medicina interna</h3>
                     <p class="text-slate-500 text-sm font-medium leading-relaxed">Manejo especializado de enfermedades crónicas, integración diagnóstica y valoraciones preoperatorias de alta precisión.</p>
                 </article>
 
                 <!-- Casos Complejos -->
-                <article class="bento-card lg:col-span-4">
+                <article class="bento-card lg:col-span-4 reveal-on-scroll" style="transition-delay: 200ms;">
                     <h3 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">Casos complejos</h3>
-                    <p class="text-slate-500 text-sm font-medium leading-relaxed">Diagnóstico de fiebre de origen desconocido y tratamiento de infecciones complejas o por bacterias multirresistentes. Rapidez y búsqueda de efectividad diagnóstica ante el misterio médico.</p>
+                    <p class="text-slate-500 text-sm font-medium leading-relaxed">Diagnóstico de fiebre de origen desconocido y tratamiento de infecciones complejas o por bacterias multirresistentes.</p>
                 </article>
             </div>
         </div>
@@ -388,29 +444,29 @@
         <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 skew-x-12 translate-x-32"></div>
         
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="mb-20">
+            <div class="mb-20 reveal-on-scroll">
                 <h2 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter mb-8 italic">Consultoría & <br><span class="text-blue-500">alianzas estratégicas.</span></h2>
                 <p class="text-slate-400 text-xl font-medium max-w-3xl leading-relaxed">
-                    Soluciones de alto nivel para organizaciones que requieren expertise médico en enfermedades inecciosas y entornos complejos, educación médica continua o desarrollo estratégico e implementación de programas salud pública y preparedness.
+                    Soluciones de alto nivel para organizaciones que requieren expertise médico en enfermedades inecciosas y entornos complejos, educación médica continua o desarrollo estratégico.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Expediciones -->
-                <div class="group relative h-[500px] rounded-[2.5rem] overflow-hidden">
+                <div class="group relative h-[500px] rounded-[2.5rem] overflow-hidden reveal-on-scroll">
                     <img src="image_47c45d.jpg" alt="Medicina de Expedición en entornos extremos" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                          onerror="this.src='https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&q=80&w=1000'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                     <div class="absolute bottom-0 p-8">
                         <span class="text-blue-400 font-black text-[9px] uppercase tracking-widest mb-3 block">Expedition & Wilderness</span>
                         <h3 class="text-2xl font-bold text-white mb-3 tracking-tight leading-tight">Medicina Expedicionaria y entornos extremos</h3>
-                        <p class="text-slate-300 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">Asesoría médica, logística, fitness-to-travel, fitness-to-dive y capacitación para grupos y organizaciones. Te ayudamos a llegar a cualquier parte del mundo.</p>
+                        <p class="text-slate-300 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">Asesoría médica, logística, fitness-to-travel, fitness-to-dive y capacitación para grupos y organizaciones.</p>
                     </div>
                 </div>
 
                 <!-- Speaker & Industry -->
-                <div class="group relative h-[500px] rounded-[2.5rem] overflow-hidden">
+                <div class="group relative h-[500px] rounded-[2.5rem] overflow-hidden reveal-on-scroll" style="transition-delay: 100ms;">
                     <img src="image_47c4db.jpg" alt="Colaboraciones Industriales y Speaker médico" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                          onerror="this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1000'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
@@ -422,9 +478,9 @@
                 </div>
 
                 <!-- ONGs -->
-                <div class="bento-card bg-white/5 border-white/10 text-white flex flex-col justify-end min-h-[500px]">
+                <div class="bento-card bg-white/5 border-white/10 text-white flex flex-col justify-end min-h-[500px] hover:bg-white/10 reveal-on-scroll" style="transition-delay: 200ms;">
                     <div class="mb-auto">
-                        <div class="h-14 w-14 bg-white/10 rounded-2xl flex items-center justify-center text-blue-400">
+                        <div class="h-14 w-14 bg-white/10 rounded-2xl flex items-center justify-center text-blue-400 backdrop-blur-md">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
                         </div>
                     </div>
@@ -438,50 +494,51 @@
         </div>
     </section>
 
-    <!-- Acreditaciones Internacionales (New Section) -->
+    <!-- Acreditaciones Internacionales -->
     <section id="acreditaciones" class="py-32 px-6 border-b border-slate-100">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tighter">Acreditaciones con impacto global.</h2>
+            <div class="text-center mb-20 reveal-on-scroll">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tighter">Acreditaciones & expertise.</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Cert 1 -->
-                <a href="https://www.istm.org/clinic-directory/" target="_blank" rel="noopener noreferrer" class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-slate-50 transition-all">
+                <a href="https://www.istm.org/clinic-directory/" target="_blank" rel="noopener noreferrer" class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-white hover:shadow-xl transition-all reveal-on-scroll">
                     <p class="text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-4">Certificado</p>
                     <h4 class="text-base font-bold text-slate-900 leading-tight">Certificate of Travel Health (CTH)</h4>
                     <p class="text-slate-500 text-xs mt-3">International Society of Travel Medicine</p>
                 </a>
                 <!-- Cert 2 -->
-                <div class="p-8 border border-slate-100 rounded-3xl">
+                <div class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-white hover:shadow-xl transition-all reveal-on-scroll" style="transition-delay: 50ms;">
                     <p class="text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-4">Maestría</p>
                     <h4 class="text-base font-bold text-slate-900 leading-tight">MSc Tropical Medicine & International Health</h4>
                     <p class="text-slate-500 text-xs mt-3">LSHTM, United Kingdom</p>
                 </div>
                 <!-- Cert 3 -->
-                <a href="https://www.hcid-training.co.uk/" target="_blank" rel="noopener noreferrer" class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-slate-50 transition-all">
+                <a href="https://www.hcid-training.co.uk/" target="_blank" rel="noopener noreferrer" class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-white hover:shadow-xl transition-all reveal-on-scroll" style="transition-delay: 100ms;">
                     <p class="text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-4">Global Security</p>
                     <h4 class="text-base font-bold text-slate-900 leading-tight">Trainer in High Consequence Infectious Diseases (HCID)</h4>
                     <p class="text-slate-500 text-xs mt-3">HCID Training UK</p>
                 </a>
                 <!-- Cert 4 -->
-                <div class="p-8 border border-slate-100 rounded-3xl">
+                <div class="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-white hover:shadow-xl transition-all reveal-on-scroll" style="transition-delay: 150ms;">
                     <p class="text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-4">Certificado</p>
                     <h4 class="text-base font-bold text-slate-900 leading-tight">HIV Specialist (AAHIVM)</h4>
                     <p class="text-slate-500 text-xs mt-3">American Academy of HIV Medicine</p>
                 </div>
-                <!-- Additional list items for other diplomas -->
-                <div class="p-8 border border-slate-100 rounded-3xl">
+                
+                <!-- Additional list items simplified for layout beauty -->
+                <div class="p-8 border border-slate-100 rounded-3xl opacity-75 hover:opacity-100 transition-all reveal-on-scroll">
                     <h4 class="text-base font-bold text-slate-900 leading-tight">Diploma in Tropical Medicine & Hygiene (DTM&H)</h4>
-                    <p class="text-slate-500 text-xs mt-3">Advanced clinical expertise</p>
                 </div>
-                <div class="p-8 border border-slate-100 rounded-3xl">
+                <div class="p-8 border border-slate-100 rounded-3xl opacity-75 hover:opacity-100 transition-all reveal-on-scroll">
                     <h4 class="text-base font-bold text-slate-900 leading-tight">Diploma in One Health</h4>
-                    <p class="text-slate-500 text-xs mt-3">Interdisciplinary health approach</p>
                 </div>
-                <div class="p-8 border border-slate-100 rounded-3xl">
+                <div class="p-8 border border-slate-100 rounded-3xl opacity-75 hover:opacity-100 transition-all reveal-on-scroll">
                     <h4 class="text-base font-bold text-slate-900 leading-tight">Fellow of Extreme & Wilderness Medicine</h4>
-                    <p class="text-slate-500 text-xs mt-3">World Extreme Medicine</p>
+                </div>
+                <div class="p-8 border border-slate-100 rounded-3xl opacity-75 hover:opacity-100 transition-all reveal-on-scroll">
+                    <h4 class="text-base font-bold text-slate-900 leading-tight">Member of IDSA & AMIMC</h4>
                 </div>
             </div>
         </div>
@@ -490,17 +547,18 @@
     <!-- Perfil -->
     <section id="conoce" class="py-40 px-6">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 items-center">
-            <div class="w-full lg:w-2/5 relative">
-                <div class="aspect-[3/4] rounded-[4rem] overflow-hidden shadow-2xl bg-white border-[10px] border-white transform lg:-rotate-3 hover:rotate-0 transition-all duration-700">
+            <div class="w-full lg:w-2/5 relative reveal-on-scroll">
+                <div class="absolute -inset-4 bg-slate-100 rounded-[4.5rem] transform rotate-3 z-0"></div>
+                <div class="aspect-[3/4] rounded-[4rem] overflow-hidden shadow-2xl bg-white border-[8px] border-white transform lg:-rotate-3 hover:rotate-0 transition-all duration-700 relative z-10">
                     <img src="photo%20msf.jpg" alt="Dr. Rodrigo Ville MSF, misión humanitaria" loading="lazy" class="w-full h-full object-cover"
                          onerror="this.src='https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1000'">
                 </div>
             </div>
-            <div class="w-full lg:w-3/5 space-y-12">
+            <div class="w-full lg:w-3/5 space-y-12 reveal-on-scroll">
                 <h2 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tighter leading-[0.9]">Dr. Rodrigo <br> Ville Benavides</h2>
                 <div class="space-y-8 text-slate-600 font-medium leading-relaxed text-xl">
                     <p>Médico especialista en <span class="text-slate-900 font-bold decoration-blue-500 decoration-4 underline underline-offset-4">infectología y medicina interna</span>, formado en el Instituto Nacional de Nutrición Salvador Zubirán y la London School of Hygiene and Tropical Medicine.</p>
-                    <p>Mi trayectoria integra la excelencia clínica y académica con la respuesta humanitaria internacional. He colaborado con Médicos Sin Fronteras (MSF) y otras organizaciones en diversos contextos y países, lo que me permite abordar la salud desde una perspectiva global, resolutiva y profundamente humana.</p>
+                    <p>Mi trayectoria integra la excelencia clínica y académica con la respuesta humanitaria internacional. He colaborado con Médicos Sin Fronteras (MSF) y otras organizaciones en diversos contextos y países.</p>
                     <p>Priorizo la privacidad y la agilidad diagnóstica, adecuándome a las necesidades de cada paciente, ya sea en un consultorio privado o en una expedición remota.</p>
                 </div>
             </div>
@@ -510,7 +568,7 @@
     <!-- Opiniones Refinadas -->
     <section id="opiniones" class="py-40 px-6 bg-slate-50">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8 reveal-on-scroll">
                 <div class="space-y-4 text-left">
                     <h2 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tighter">Voces de confianza.</h2>
                     <p class="text-slate-500 text-xl font-medium">Excelencia avalada por pacientes y profesionales de la industria.</p>
@@ -522,7 +580,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 <!-- Michelle G -->
-                <div class="bento-card p-10 hover:border-blue-200">
+                <div class="bento-card p-10 hover:border-blue-200 reveal-on-scroll">
                     <div class="flex gap-1 mb-4">
                         <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                         <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
@@ -532,12 +590,12 @@
                     </div>
                     <p class="text-lg font-medium italic text-slate-700 leading-relaxed">"Una excelente experiencia! El Dr. Ville es profesional y claro, respetuoso y muy atento. Recomendado totalmente."</p>
                     <div class="mt-10 pt-6 border-t border-slate-100">
-                        <p class="font-bold text-slate-900">Michelle G.</p>
+                        <p class="font-bold text-slate-900">Michelle.</p>
                         <p class="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1">Consulta virtual</p>
                     </div>
                 </div>
                 <!-- Francisco -->
-                <div class="bento-card p-10 hover:border-blue-200">
+                <div class="bento-card p-10 hover:border-blue-200 reveal-on-scroll" style="transition-delay: 100ms;">
                     <div class="flex gap-1 mb-4">
                         <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                         <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
@@ -552,7 +610,7 @@
                     </div>
                 </div>
                 <!-- María Elena -->
-                <div class="bento-card p-10 hover:border-blue-200">
+                <div class="bento-card p-10 hover:border-blue-200 reveal-on-scroll" style="transition-delay: 200ms;">
                     <div class="flex gap-1 mb-4">
                         <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                         <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
@@ -567,7 +625,7 @@
                     </div>
                 </div>
                 <!-- ONG Project Manager -->
-                <div class="bento-card p-10 bg-slate-900 text-white border-none lg:col-span-2">
+                <div class="bento-card p-10 bg-slate-900 text-white border-none lg:col-span-2 reveal-on-scroll">
                     <div class="mb-6">
                         <svg class="h-8 w-8 text-blue-500 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
                     </div>
@@ -578,7 +636,7 @@
                     </div>
                 </div>
                 <!-- Ryan K -->
-                <div class="bento-card p-10 hover:border-blue-200">
+                <div class="bento-card p-10 hover:border-blue-200 reveal-on-scroll">
                     <div class="flex gap-1 mb-4">
                         <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                         <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
@@ -588,7 +646,7 @@
                     </div>
                     <p class="text-lg font-medium italic text-slate-700 leading-relaxed">"Best experience with a new doctor I have ever had - USA or Mexico. Personable and very clear in explanations."</p>
                     <div class="mt-10 pt-6 border-t border-slate-100">
-                        <p class="font-bold text-slate-900">Ryan K.</p>
+                        <p class="font-bold text-slate-900">Ryan</p>
                         <p class="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1">International patient - On site consultation</p>
                     </div>
                 </div>
@@ -599,12 +657,12 @@
     <!-- FAQ -->
     <section id="faq" class="py-40 px-6">
         <div class="max-w-4xl mx-auto space-y-20">
-            <div class="text-center space-y-4">
+            <div class="text-center space-y-4 reveal-on-scroll">
                 <h2 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tighter">Claridad médica y transparencia.</h2>
                 <p class="text-slate-500 text-xl font-medium">Preguntas frecuentes sobre servicios y logística.</p>
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-4 reveal-on-scroll">
                 <details class="group bento-card p-0 bg-white border border-slate-100 overflow-hidden">
                     <summary class="flex items-center justify-between p-8 cursor-pointer list-none hover:bg-slate-50 transition-colors">
                         <span class="text-lg font-bold text-slate-900 leading-tight">¿Qué incluye la consulta?</span>
@@ -652,7 +710,7 @@
 
     <!-- Footer -->
     <footer id="footer" class="bg-white pt-32 pb-16 px-6 border-t border-slate-100 text-left">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-16 mb-24">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-16 mb-24 reveal-on-scroll">
             <div class="md:col-span-2 space-y-8">
                 <div>
                     <h4 class="text-3xl font-black text-slate-900 tracking-tighter leading-none">DR. RODRIGO VILLE BENAVIDES</h4>
@@ -696,7 +754,7 @@
             </div>
         </div>
         
-        <div class="pt-16 border-t border-slate-100 text-[9px] font-bold text-slate-400 uppercase tracking-widest text-center leading-loose">
+        <div class="pt-16 border-t border-slate-100 text-[9px] font-bold text-slate-400 uppercase tracking-widest text-center leading-loose reveal-on-scroll">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left opacity-60 mb-12">
                 <p><span class="text-slate-900">Emergencias:</span> Llame al 911 o acuda a urgencias en caso de emergencia médica o si require PEP y no contesto en 15 minutos.</p>
                 <p><span class="text-slate-900">Disclaimer:</span> Este sitio no constituye un diagnóstico médico profesional. <span class="text-slate-900">Aviso Legal:</span> Sitio con fines informativos y educativos.</p>
@@ -707,7 +765,7 @@
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE DE WHATSAPP (NUEVO) -->
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
     <a href="https://wa.me/525579262419?text=Hola%20Dr.%20Rodrigo,%20quisiera%20agendar%20una%20cita." class="whatsapp-container group fixed bottom-6 right-6 z-[100] flex items-center" aria-label="Agendar cita por WhatsApp">
         <!-- Texto tooltip que aparece al pasar el mouse -->
         <span class="whatsapp-tooltip mr-4 bg-slate-900 text-white text-xs font-bold py-2 px-4 rounded-xl shadow-lg whitespace-nowrap hidden md:block">
@@ -721,5 +779,27 @@
         </div>
     </a>
 
+    <!-- SCROLL ANIMATION SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToReveal = document.querySelectorAll('.reveal-on-scroll');
+            elementsToReveal.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
